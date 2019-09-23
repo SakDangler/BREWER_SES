@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SQLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tPerson">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="256" />
+          <Property Name="Employee" Type="bit" Nullable="false" />
+          <Property Name="User" Type="bit" Nullable="false" />
+          <Property Name="NetworkIdentity" Type="nvarchar" MaxLength="128" />
+          <Property Name="NetworkPassword" Type="nvarchar" MaxLength="128" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="Admin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tPersonRole">
+          <Key>
+            <PropertyRef Name="PersonRoleID" />
+          </Key>
+          <Property Name="PersonRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tRole">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tPersonRole_tPerson">
+          <End Role="tPerson" Type="Self.tPerson" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tPersonRole" Type="Self.tPersonRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tPerson">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="tPersonRole">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tPersonRole_tRole">
+          <End Role="tRole" Type="Self.tRole" Multiplicity="1" />
+          <End Role="tPersonRole" Type="Self.tPersonRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tRole">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="tPersonRole">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SQLModelStoreContainer">
+          <EntitySet Name="tPerson" EntityType="Self.tPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tPersonRole" EntityType="Self.tPersonRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tRole" EntityType="Self.tRole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tPersonRole_tPerson" Association="Self.FK_tPersonRole_tPerson">
+            <End Role="tPerson" EntitySet="tPerson" />
+            <End Role="tPersonRole" EntitySet="tPersonRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tPersonRole_tRole" Association="Self.FK_tPersonRole_tRole">
+            <End Role="tRole" EntitySet="tRole" />
+            <End Role="tPersonRole" EntitySet="tPersonRole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SQLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tPerson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Employee" Type="Boolean" Nullable="false" />
+          <Property Name="User" Type="Boolean" Nullable="false" />
+          <Property Name="NetworkIdentity" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="NetworkPassword" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="Admin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tPersonRole" Relationship="Self.FK_tPersonRole_tPerson" FromRole="tPerson" ToRole="tPersonRole" />
+        </EntityType>
+        <EntityType Name="tPersonRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tPerson" Relationship="Self.FK_tPersonRole_tPerson" FromRole="tPersonRole" ToRole="tPerson" />
+          <NavigationProperty Name="tRole" Relationship="Self.FK_tPersonRole_tRole" FromRole="tPersonRole" ToRole="tRole" />
+        </EntityType>
+        <EntityType Name="tRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tPersonRole" Relationship="Self.FK_tPersonRole_tRole" FromRole="tRole" ToRole="tPersonRole" />
+        </EntityType>
+        <Association Name="FK_tPersonRole_tPerson">
+          <End Role="tPerson" Type="SQLModel.tPerson" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tPersonRole" Type="SQLModel.tPersonRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tPerson">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tPersonRole">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tPersonRole_tRole">
+          <End Role="tRole" Type="SQLModel.tRole" Multiplicity="1" />
+          <End Role="tPersonRole" Type="SQLModel.tPersonRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tPersonRole">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SQLEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tPerson" EntityType="SQLModel.tPerson" />
+          <EntitySet Name="tPersonRole" EntityType="SQLModel.tPersonRole" />
+          <EntitySet Name="tRole" EntityType="SQLModel.tRole" />
+          <AssociationSet Name="FK_tPersonRole_tPerson" Association="Self.FK_tPersonRole_tPerson">
+            <End Role="tPerson" EntitySet="tPerson" />
+            <End Role="tPersonRole" EntitySet="tPersonRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tPersonRole_tRole" Association="Self.FK_tPersonRole_tRole">
+            <End Role="tRole" EntitySet="tRole" />
+            <End Role="tPersonRole" EntitySet="tPersonRole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SQLModelStoreContainer" CdmEntityContainer="SQLEntities">
+          <EntitySetMapping Name="tPerson">
+            <EntityTypeMapping TypeName="SQLModel.tPerson">
+              <MappingFragment StoreEntitySet="tPerson">
+                <ScalarProperty Name="ID" ColumnName="PersonID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="NetworkIdentity" ColumnName="NetworkIdentity" />
+                <ScalarProperty Name="NetworkPassword" ColumnName="NetworkPassword" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tPersonRole">
+            <EntityTypeMapping TypeName="SQLModel.tPersonRole">
+              <MappingFragment StoreEntitySet="tPersonRole">
+                <ScalarProperty Name="ID" ColumnName="PersonRoleID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tRole">
+            <EntityTypeMapping TypeName="SQLModel.tRole">
+              <MappingFragment StoreEntitySet="tRole">
+                <ScalarProperty Name="ID" ColumnName="RoleID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
