@@ -3,56 +3,136 @@
 <!DOCTYPE html>
 
 <style>
-    .dropdown-submenu {
+    html,
+    body {
+        height: 100%;
+        position: relative;
+        padding: 0px !important;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .sidebar-container {
+        position: fixed;
+        width: 220px;
+        height: 100%;
+        left: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background: #1a1a1a;
+        color: #fff;
+    }
+
+    .content-container {
+        padding: 25px;
+    }
+
+    .sidebar-logo {
+        padding: 10px 15px 10px 30px;
+        font-size: 20px;
+        background-color: #2574A9;
+    }
+
+    .sidebar-navigation {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
         position: relative;
     }
 
-        .dropdown-submenu > .dropdown-menu {
-            top: 0;
-            left: 100%;
-            margin-top: -6px;
-            margin-left: -1px;
-            -webkit-border-radius: 0 6px 6px 6px;
-            -moz-border-radius: 0 6px 6px;
-            border-radius: 0 6px 6px 6px;
+        .sidebar-navigation li {
+            background-color: transparent;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            line-height: 20px;
         }
 
-        .dropdown-submenu:hover > .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-submenu > a:after {
-            display: block;
-            content: " ";
-            float: right;
-            width: 0;
-            height: 0;
-            border-color: transparent;
-            border-style: solid;
-            border-width: 5px 0 5px 5px;
-            border-left-color: #ccc;
-            margin-top: 5px;
-            margin-right: -10px;
-        }
-
-        .dropdown-submenu:hover > a:after {
-            border-left-color: #fff;
-        }
-
-        .dropdown-submenu.pull-left {
-            float: none;
-        }
-
-            .dropdown-submenu.pull-left > .dropdown-menu {
-                left: -100%;
-                margin-left: 10px;
-                -webkit-border-radius: 6px 0 6px 6px;
-                -moz-border-radius: 6px 0 6px 6px;
-                border-radius: 6px 0 6px 6px;
+            .sidebar-navigation li a {
+                padding: 10px 15px 10px 30px;
+                display: block;
+                color: #fff;
             }
+
+            .sidebar-navigation li .fa {
+                margin-right: 10px;
+            }
+
+            .sidebar-navigation li a:active,
+            .sidebar-navigation li a:hover,
+            .sidebar-navigation li a:focus {
+                text-decoration: none;
+                outline: none;
+            }
+
+            .sidebar-navigation li::before {
+                background-color: #2574A9;
+                position: absolute;
+                content: '';
+                height: 100%;
+                left: 0;
+                top: 0;
+                -webkit-transition: width 0.2s ease-in;
+                transition: width 0.2s ease-in;
+                width: 3px;
+                z-index: -1;
+            }
+
+            .sidebar-navigation li:hover::before {
+                width: 100%;
+            }
+
+        .sidebar-navigation .header {
+            font-size: 12px;
+            text-transform: uppercase;
+            background-color: #151515;
+            padding: 10px 15px 10px 30px;
+        }
+
+            .sidebar-navigation .header::before {
+                background-color: transparent;
+            }
+
+    .content-container {
+        padding-left: 220px;
+    }
+
+    .category-maintenance, .category-admin {
+        background-color: #1a1a1a;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+    }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        .active, .category:hover {
+            background-color: #2574A9;
+        }
+
+    /* Style the collapsible content. Note: hidden by default */
+    .menuItems {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: #1a1a1a;
+    }
+
+    li a:hover{
+        color: #2574A9;
+    }
+
 </style>
 
-<html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -62,7 +142,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -88,58 +168,82 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">BASE_SOLUTION</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Maintenance<b class="caret"></b></a>
-                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-                                <li class="dropdown-submenu">
-                                    <a href="#">Screens</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="/Screens/Maintenance/Lookup/Contact/List/" runat="server">Contact</a></li>
-                                        <li><a href="/Screens/Maintenance/Lookup/Carrier/" runat="server">Screen2</a></li>
-                                        <li><a href="/Screens/Maintenance/Lookup/Product/" runat="server">Screen3</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown-submenu">
-                                    <a href="#">Admin</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="/Screens/Maintenance/Admin/Grantee/List" runat="server">Grantee</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
-                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-                                <li><a href="/Screens/Admin/Person/List" runat="server">Persons</a></li>
-                                <li><a href="/Screens/Admin/Role/List" runat="server">Roles</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+        <div class="sidebar-container">
+            <div class="sidebar-logo">
+                KY Headstart
+            </div>
+
+            <button type="button" class="category-maintenance">Maintenance</button>
+            <div class="menuItems">
+                <ul class="sidebar-navigation">
+                    <li>
+                        <a href="/Screens/Maintenance/Lookup/Contact/List/">
+                            <i class="fa fa-home" aria-hidden="true"></i>Contact
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Screens/Maintenance/Admin/Grantee/List">
+                            <i class="fa fa-tachometer" aria-hidden="true"></i>Grantees
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <button type="button" class="category-admin">Admin</button>
+            <div class="menuItems">
+                <ul class="sidebar-navigation">
+                    <li>
+                        <a href="/Screens/Admin/Person/List">
+                            <i class="fa fa-users" aria-hidden="true"></i>Persons
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Screens/Admin/Role/List">
+                            <i class="fa fa-cog" aria-hidden="true"></i>Roles
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <br />
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                <br />
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Advantage Technology</p>
-            </footer>
+        <div class="content-container">
+            <div class="container-fluid">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    <br />
+                </asp:ContentPlaceHolder>
+                <hr />
+                <footer>
+                    <p>&copy; <%: DateTime.Now.Year %> - Advantage Technology</p>
+                </footer>
+            </div>
         </div>
     </form>
 </body>
-</html>
+
+<script>
+    var coll = document.getElementsByClassName("category-maintenance");
+    var i;
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+
+    var coll2 = document.getElementsByClassName("category-admin");
+    for (i = 0; i < coll.length; i++) {
+        coll2[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>
