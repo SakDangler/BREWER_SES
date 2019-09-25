@@ -10,6 +10,13 @@
         <EntityTypeShape EntityType="SQLModel.tRole" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="SQLModel.FK_tPersonRole_tPerson" ManuallyRouted="false" />
         <AssociationConnector Association="SQLModel.FK_tPersonRole_tRole" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SQLModel.tCommittee" Width="1.5" PointX="5.625" PointY="1.75" />
+        <EntityTypeShape EntityType="SQLModel.tContact" Width="1.5" PointX="5.625" PointY="5" />
+        <EntityTypeShape EntityType="SQLModel.tContactCommittee" Width="1.5" PointX="7.875" PointY="5.625" />
+        <EntityTypeShape EntityType="SQLModel.tGrantee" Width="1.5" PointX="3.375" PointY="5.375" />
+        <AssociationConnector Association="SQLModel.FK_tContactCommittee_tCommittee" />
+        <AssociationConnector Association="SQLModel.FK_tContact_tGrantee" />
+        <AssociationConnector Association="SQLModel.FK_tContactCommittee_tContact" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

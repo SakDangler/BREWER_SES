@@ -106,9 +106,15 @@
                                 <li class="dropdown-submenu">
                                     <a href="#">Screens</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/Screens/Maintenance/Lookup/Contact/" runat="server">Screen1</a></li>
+                                        <li><a href="/Screens/Maintenance/Lookup/Contact/List/" runat="server">Contact</a></li>
                                         <li><a href="/Screens/Maintenance/Lookup/Carrier/" runat="server">Screen2</a></li>
                                         <li><a href="/Screens/Maintenance/Lookup/Product/" runat="server">Screen3</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="#">Admin</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Screens/Maintenance/Admin/Grantee/List" runat="server">Grantee</a></li>
                                     </ul>
                                 </li>
                             </ul>

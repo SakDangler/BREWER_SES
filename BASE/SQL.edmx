@@ -4,7 +4,54 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SQLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SQLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tCommittee">
+          <Key>
+            <PropertyRef Name="CommitteeID" />
+          </Key>
+          <Property Name="CommitteeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="Disabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="tContact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GranteeID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrimaryPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecondaryPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrimaryEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="MemberNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegionHSParticipation" Type="bit" />
+          <Property Name="NationalHSParticipation" Type="bit" />
+          <Property Name="Disabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="tContactCommittee">
+          <Key>
+            <PropertyRef Name="ContactCommitteeID" />
+          </Key>
+          <Property Name="ContactCommitteeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactID" Type="int" Nullable="false" />
+          <Property Name="CommitteeID" Type="int" Nullable="false" />
+          <Property Name="Disabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="tGrantee">
+          <Key>
+            <PropertyRef Name="GranteeID" />
+          </Key>
+          <Property Name="GranteeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GranteeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GranteeAddress1" Type="nvarchar" MaxLength="50" />
+          <Property Name="GranteeAddress2" Type="nvarchar" MaxLength="50" />
+          <Property Name="GranteeCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="GranteeState" Type="nvarchar" MaxLength="50" />
+          <Property Name="GranteeZip" Type="nvarchar" MaxLength="50" />
+          <Property Name="Disabled" Type="bit" />
+        </EntityType>
         <EntityType Name="tPerson">
           <Key>
             <PropertyRef Name="PersonID" />
@@ -35,6 +82,42 @@
           <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
         </EntityType>
+        <Association Name="FK_tContact_tGrantee">
+          <End Role="tGrantee" Type="Self.tGrantee" Multiplicity="1" />
+          <End Role="tContact" Type="Self.tContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tGrantee">
+              <PropertyRef Name="GranteeID" />
+            </Principal>
+            <Dependent Role="tContact">
+              <PropertyRef Name="GranteeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tContactCommittee_tCommittee">
+          <End Role="tCommittee" Type="Self.tCommittee" Multiplicity="1" />
+          <End Role="tContactCommittee" Type="Self.tContactCommittee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tCommittee">
+              <PropertyRef Name="CommitteeID" />
+            </Principal>
+            <Dependent Role="tContactCommittee">
+              <PropertyRef Name="CommitteeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tContactCommittee_tContact">
+          <End Role="tContact" Type="Self.tContact" Multiplicity="1" />
+          <End Role="tContactCommittee" Type="Self.tContactCommittee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tContact">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="tContactCommittee">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tPersonRole_tPerson">
           <End Role="tPerson" Type="Self.tPerson" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -62,9 +145,25 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SQLModelStoreContainer">
+          <EntitySet Name="tCommittee" EntityType="Self.tCommittee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tContact" EntityType="Self.tContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tContactCommittee" EntityType="Self.tContactCommittee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tGrantee" EntityType="Self.tGrantee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tPerson" EntityType="Self.tPerson" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tPersonRole" EntityType="Self.tPersonRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tRole" EntityType="Self.tRole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tContact_tGrantee" Association="Self.FK_tContact_tGrantee">
+            <End Role="tGrantee" EntitySet="tGrantee" />
+            <End Role="tContact" EntitySet="tContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tContactCommittee_tCommittee" Association="Self.FK_tContactCommittee_tCommittee">
+            <End Role="tCommittee" EntitySet="tCommittee" />
+            <End Role="tContactCommittee" EntitySet="tContactCommittee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tContactCommittee_tContact" Association="Self.FK_tContactCommittee_tContact">
+            <End Role="tContact" EntitySet="tContact" />
+            <End Role="tContactCommittee" EntitySet="tContactCommittee" />
+          </AssociationSet>
           <AssociationSet Name="FK_tPersonRole_tPerson" Association="Self.FK_tPersonRole_tPerson">
             <End Role="tPerson" EntitySet="tPerson" />
             <End Role="tPersonRole" EntitySet="tPersonRole" />
@@ -74,8 +173,7 @@
             <End Role="tPersonRole" EntitySet="tPersonRole" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SQLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -151,7 +249,112 @@
             <End Role="tRole" EntitySet="tRole" />
             <End Role="tPersonRole" EntitySet="tPersonRole" />
           </AssociationSet>
+          <EntitySet Name="tCommittee" EntityType="SQLModel.tCommittee" />
+          <EntitySet Name="tContact" EntityType="SQLModel.tContact" />
+          <EntitySet Name="tContactCommittee" EntityType="SQLModel.tContactCommittee" />
+          <EntitySet Name="tGrantee" EntityType="SQLModel.tGrantee" />
+          <AssociationSet Name="FK_tContactCommittee_tCommittee" Association="SQLModel.FK_tContactCommittee_tCommittee">
+            <End Role="tCommittee" EntitySet="tCommittee" />
+            <End Role="tContactCommittee" EntitySet="tContactCommittee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tContact_tGrantee" Association="SQLModel.FK_tContact_tGrantee">
+            <End Role="tGrantee" EntitySet="tGrantee" />
+            <End Role="tContact" EntitySet="tContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tContactCommittee_tContact" Association="SQLModel.FK_tContactCommittee_tContact">
+            <End Role="tContact" EntitySet="tContact" />
+            <End Role="tContactCommittee" EntitySet="tContactCommittee" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tCommittee">
+          <Key>
+            <PropertyRef Name="CommitteeID" />
+          </Key>
+          <Property Name="CommitteeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Disabled" Type="Boolean" />
+          <NavigationProperty Name="tContactCommittee" Relationship="SQLModel.FK_tContactCommittee_tCommittee" FromRole="tCommittee" ToRole="tContactCommittee" />
+        </EntityType>
+        <EntityType Name="tContact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GranteeID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrimaryPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SecondaryPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrimaryEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MemberNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegionHSParticipation" Type="Boolean" />
+          <Property Name="NationalHSParticipation" Type="Boolean" />
+          <Property Name="Disabled" Type="Boolean" />
+          <NavigationProperty Name="tGrantee" Relationship="SQLModel.FK_tContact_tGrantee" FromRole="tContact" ToRole="tGrantee" />
+          <NavigationProperty Name="tContactCommittee" Relationship="SQLModel.FK_tContactCommittee_tContact" FromRole="tContact" ToRole="tContactCommittee" />
+        </EntityType>
+        <EntityType Name="tContactCommittee">
+          <Key>
+            <PropertyRef Name="ContactCommitteeID" />
+          </Key>
+          <Property Name="ContactCommitteeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactID" Type="Int32" Nullable="false" />
+          <Property Name="CommitteeID" Type="Int32" Nullable="false" />
+          <Property Name="Disabled" Type="Boolean" />
+          <NavigationProperty Name="tCommittee" Relationship="SQLModel.FK_tContactCommittee_tCommittee" FromRole="tContactCommittee" ToRole="tCommittee" />
+          <NavigationProperty Name="tContact" Relationship="SQLModel.FK_tContactCommittee_tContact" FromRole="tContactCommittee" ToRole="tContact" />
+        </EntityType>
+        <EntityType Name="tGrantee">
+          <Key>
+            <PropertyRef Name="GranteeID" />
+          </Key>
+          <Property Name="GranteeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GranteeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GranteeAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GranteeAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GranteeCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GranteeState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GranteeZip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Disabled" Type="Boolean" />
+          <NavigationProperty Name="tContact" Relationship="SQLModel.FK_tContact_tGrantee" FromRole="tGrantee" ToRole="tContact" />
+        </EntityType>
+        <Association Name="FK_tContactCommittee_tCommittee">
+          <End Type="SQLModel.tCommittee" Role="tCommittee" Multiplicity="1" />
+          <End Type="SQLModel.tContactCommittee" Role="tContactCommittee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tCommittee">
+              <PropertyRef Name="CommitteeID" />
+            </Principal>
+            <Dependent Role="tContactCommittee">
+              <PropertyRef Name="CommitteeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tContact_tGrantee">
+          <End Type="SQLModel.tGrantee" Role="tGrantee" Multiplicity="1" />
+          <End Type="SQLModel.tContact" Role="tContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tGrantee">
+              <PropertyRef Name="GranteeID" />
+            </Principal>
+            <Dependent Role="tContact">
+              <PropertyRef Name="GranteeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tContactCommittee_tContact">
+          <End Type="SQLModel.tContact" Role="tContact" Multiplicity="1" />
+          <End Type="SQLModel.tContactCommittee" Role="tContactCommittee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tContact">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="tContactCommittee">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -188,6 +391,57 @@
               <MappingFragment StoreEntitySet="tRole">
                 <ScalarProperty Name="ID" ColumnName="RoleID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tCommittee">
+            <EntityTypeMapping TypeName="SQLModel.tCommittee">
+              <MappingFragment StoreEntitySet="tCommittee">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CommitteeID" ColumnName="CommitteeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tContact">
+            <EntityTypeMapping TypeName="SQLModel.tContact">
+              <MappingFragment StoreEntitySet="tContact">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="NationalHSParticipation" ColumnName="NationalHSParticipation" />
+                <ScalarProperty Name="RegionHSParticipation" ColumnName="RegionHSParticipation" />
+                <ScalarProperty Name="MemberNumber" ColumnName="MemberNumber" />
+                <ScalarProperty Name="PrimaryEmail" ColumnName="PrimaryEmail" />
+                <ScalarProperty Name="SecondaryPhone" ColumnName="SecondaryPhone" />
+                <ScalarProperty Name="PrimaryPhone" ColumnName="PrimaryPhone" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="GranteeID" ColumnName="GranteeID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tContactCommittee">
+            <EntityTypeMapping TypeName="SQLModel.tContactCommittee">
+              <MappingFragment StoreEntitySet="tContactCommittee">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="CommitteeID" ColumnName="CommitteeID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="ContactCommitteeID" ColumnName="ContactCommitteeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tGrantee">
+            <EntityTypeMapping TypeName="SQLModel.tGrantee">
+              <MappingFragment StoreEntitySet="tGrantee">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="GranteeZip" ColumnName="GranteeZip" />
+                <ScalarProperty Name="GranteeState" ColumnName="GranteeState" />
+                <ScalarProperty Name="GranteeCity" ColumnName="GranteeCity" />
+                <ScalarProperty Name="GranteeAddress2" ColumnName="GranteeAddress2" />
+                <ScalarProperty Name="GranteeAddress1" ColumnName="GranteeAddress1" />
+                <ScalarProperty Name="GranteeName" ColumnName="GranteeName" />
+                <ScalarProperty Name="GranteeID" ColumnName="GranteeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

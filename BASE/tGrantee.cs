@@ -15,27 +15,39 @@ namespace BASE
 using System;
     using System.Collections.Generic;
     
-public partial class tRole
+public partial class tGrantee
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public tRole()
+    public tGrantee()
     {
 
-        this.tPersonRole = new HashSet<tPersonRole>();
+        this.tContact = new HashSet<tContact>();
 
     }
 
 
-    public int ID { get; set; }
+    public int GranteeID { get; set; }
 
-    public string Name { get; set; }
+    public string GranteeName { get; set; }
+
+    public string GranteeAddress1 { get; set; }
+
+    public string GranteeAddress2 { get; set; }
+
+    public string GranteeCity { get; set; }
+
+    public string GranteeState { get; set; }
+
+    public string GranteeZip { get; set; }
+
+    public Nullable<bool> Disabled { get; set; }
 
 
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<tPersonRole> tPersonRole { get; set; }
+    public virtual ICollection<tContact> tContact { get; set; }
 
 }
 
