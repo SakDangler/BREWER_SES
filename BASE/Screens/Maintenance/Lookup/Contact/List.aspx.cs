@@ -22,6 +22,8 @@ namespace BASE.Screens.Maintenance.Lookup.Contact
             {
                 LoadContacts();
             }
+
+            litLevel.Text = CurrentUser.UserID.ToString();
         }
 
         public void LoadContacts()

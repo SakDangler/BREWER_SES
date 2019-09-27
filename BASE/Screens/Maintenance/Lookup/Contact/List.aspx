@@ -9,6 +9,8 @@
 
         <br />
 
+        <asp:Literal ID="litLevel" runat="server"></asp:Literal>
+
         <div class="row">
             <asp:ListView ID="ItemListView" runat="server" OnItemDataBound="ItemListView_ItemDataBound">
                 <LayoutTemplate>
