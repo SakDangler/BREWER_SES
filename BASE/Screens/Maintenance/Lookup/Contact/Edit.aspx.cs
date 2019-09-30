@@ -49,7 +49,21 @@ namespace BASE.Screens.Maintenance.Lookup.Contact
                 chkDisabled.Checked = (CurrentItem.Disabled == true) ? true : false;
                 chkRegional.Checked = (CurrentItem.RegionHSParticipation == true) ? true : false;
                 chkNational.Checked = (CurrentItem.NationalHSParticipation == true) ? true : false;
+                LoadGrantees(ddlGrantee);
             }
+        }
+
+        protected DropDownList LoadGrantees(DropDownList ddl)
+        {
+            List<tGrantee> granteeList = _entity.tGrantee.ToList();
+            string granteeName = _entity.tGrantee.Where(w => w.GranteeID == CurrentItem.GranteeID).Select(w => w.GranteeID).ToString();
+
+            ddl.DataSource = granteeList;
+            ddl.Items.FindByText(granteeName);
+            ddl.DataTextField = "GranteeName";
+            ddl.DataValueField = "GranteeID";
+            ddl.DataBind();
+            return ddl;
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -63,6 +77,7 @@ namespace BASE.Screens.Maintenance.Lookup.Contact
             CurrentItem.Disabled = (chkDisabled.Checked == true) ? true : false;
             CurrentItem.RegionHSParticipation = (chkRegional.Checked == true) ? true : false;
             CurrentItem.NationalHSParticipation = (chkNational.Checked == true) ? true : false;
+            CurrentItem.GranteeID = Convert.ToInt32(ddlGrantee.SelectedValue);
 
             _entity.Entry(CurrentItem).Property("FirstName").IsModified = true;
             _entity.Entry(CurrentItem).Property("LastName").IsModified = true;
@@ -73,6 +88,7 @@ namespace BASE.Screens.Maintenance.Lookup.Contact
             _entity.Entry(CurrentItem).Property("Disabled").IsModified = true;
             _entity.Entry(CurrentItem).Property("RegionHSParticipation").IsModified = true;
             _entity.Entry(CurrentItem).Property("NationalHSParticipation").IsModified = true;
+            _entity.Entry(CurrentItem).Property("GranteeID").IsModified = true;
 
             _entity.SaveChanges();
 

@@ -26,7 +26,7 @@
                 <asp:TextBox id="txtEmail" Width="150" runat="server" />
 
             </div>
-
+            
             <div class="col-md-6">
 
                 <asp:Label runat="server" Width="200" Text="Last Name" />
@@ -45,7 +45,7 @@
 
         </div>
 
-        <br />
+        <br /><hr /><br />
 
         <div class="row">
 
@@ -66,7 +66,20 @@
 
         </div>
         
-        <br />
+        <br /><hr /><br />
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <asp:Label runat="server" Width="100" Text="Grantee" />
+                <asp:DropDownList runat="server" ID="ddlGrantee" Width="200" />
+
+            </div>
+
+        </div>
+
+        <br /><hr /><br />
 
         <div class="row">
 
