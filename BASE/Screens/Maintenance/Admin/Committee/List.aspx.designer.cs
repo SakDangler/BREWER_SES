@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BASE.Screens.Maintenance.Lookup.Contact {
+namespace BASE.Screens.Maintenance.Admin.Committee {
     
     
     public partial class List {

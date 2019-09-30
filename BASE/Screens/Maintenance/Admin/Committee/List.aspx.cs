@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace BASE.Screens.Maintenance.Lookup.Contact
+namespace BASE.Screens.Maintenance.Admin.Committee
 {
     public partial class List : System.Web.UI.Page
     {
@@ -20,15 +20,14 @@ namespace BASE.Screens.Maintenance.Lookup.Contact
         {
             if (!IsPostBack)
             {
-                LoadContacts();
+                LoadCommittees();
             }
-
         }
 
-        public void LoadContacts()
+        public void LoadCommittees()
         {
-            List<tContact> contacts = _entity.tContact.ToList();
-            ItemListView.DataSource = contacts;
+            List<tCommittee> committees = _entity.tCommittee.ToList();
+            ItemListView.DataSource = committees;
             ItemListView.DataBind();
         }
 
@@ -36,18 +35,18 @@ namespace BASE.Screens.Maintenance.Lookup.Contact
         {
             if (e.Item.ItemType == ListViewItemType.DataItem)
             {
-                tContact contact = (tContact)e.Item.DataItem;
+                tCommittee committee = (tCommittee)e.Item.DataItem;
 
                 HyperLink hypDetail = (HyperLink)e.Item.FindControl("hypDetail");
 
-                hypDetail.NavigateUrl = "/Screens/Maintenance/Lookup/Contact/Detail?ID=" + contact.ContactID;
-                hypDetail.Text = contact.LastName + ", " + contact.FirstName;
+                hypDetail.NavigateUrl = "/Screens/Maintenance/Admin/Committee/Detail?ID=" + committee.CommitteeID;
+                hypDetail.Text = committee.Name;
             }
         }
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Screens/Maintenance/Lookup/Contact/Create");
+            Response.Redirect("/Screens/Maintenance/Admin/Committee/Create");
         }
     }
 }

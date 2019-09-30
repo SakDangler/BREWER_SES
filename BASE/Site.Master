@@ -186,6 +186,11 @@
                             <i class="fa fa-tachometer" aria-hidden="true"></i>Grantees
                         </a>
                     </li>
+                    <li>
+                        <a href="/Screens/Maintenance/Admin/Committee/List">
+                            <i class="fa fa-tachometer" aria-hidden="true"></i>Committees
+                        </a>
+                    </li>
                 </ul>
             </div>
 

@@ -143,6 +143,10 @@
     <Content Include="Screens\Admin\Role\Detail.aspx" />
     <Content Include="Screens\Admin\Role\Edit.aspx" />
     <Content Include="Screens\Admin\Role\List.aspx" />
+    <Content Include="Screens\Maintenance\Admin\Committee\Create.aspx" />
+    <Content Include="Screens\Maintenance\Admin\Committee\Detail.aspx" />
+    <Content Include="Screens\Maintenance\Admin\Committee\Edit.aspx" />
+    <Content Include="Screens\Maintenance\Admin\Committee\List.aspx" />
     <Content Include="Screens\Maintenance\Admin\Grantee\Edit.aspx" />
     <Content Include="Screens\Maintenance\Admin\Grantee\Create.aspx" />
     <Content Include="Screens\Maintenance\Admin\Grantee\Detail.aspx" />
@@ -151,6 +155,7 @@
     <Content Include="Screens\Maintenance\Lookup\Contact\Detail.aspx" />
     <Content Include="Screens\Maintenance\Lookup\Contact\Edit.aspx" />
     <Content Include="Screens\Maintenance\Lookup\Contact\List.aspx" />
+    <Content Include="Screens\Maintenance\Lookup\Contact\ManageRoles.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -288,6 +293,34 @@
     <Compile Include="Screens\Admin\Role\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Maintenance\Admin\Committee\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Admin\Committee\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Admin\Committee\Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Admin\Committee\Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Admin\Committee\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Admin\Committee\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Admin\Committee\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Admin\Committee\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Maintenance\Admin\Grantee\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -343,6 +376,13 @@
     </Compile>
     <Compile Include="Screens\Maintenance\Lookup\Contact\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Lookup\Contact\ManageRoles.aspx.cs">
+      <DependentUpon>ManageRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Lookup\Contact\ManageRoles.aspx.designer.cs">
+      <DependentUpon>ManageRoles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

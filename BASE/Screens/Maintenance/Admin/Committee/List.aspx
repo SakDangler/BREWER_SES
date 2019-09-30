@@ -1,22 +1,19 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="BASE.Screens.Maintenance.Lookup.Contact.List" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="BASE.Screens.Maintenance.Admin.Committee.List" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
-        <h3>Contacts</h3>
+        <h3>Committees</h3>
 
         <asp:Button ID="btnCreate" Text="Create" Width="125" runat="server" OnClick="btnCreate_Click" />
 
         <br />
-        
+
         <div class="row">
             <asp:ListView ID="ItemListView" runat="server" OnItemDataBound="ItemListView_ItemDataBound">
                 <LayoutTemplate>
                     <table style="width: 100%;">
                         <tr class="table-header">
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th>Name:</th>
                         </tr>
                         <tr runat="server" id="itemPlaceholder" />
                     </table>
@@ -25,8 +22,6 @@
                     <tr id="ItemTableRow" runat="server" class="table-row alt">
                         <td>
                             <asp:HyperLink ID="hypDetail" runat="server" /></td>
-                        <td><%# Eval("PrimaryEmail") %></td>
-                        <td><%# Eval("PrimaryPhone") %></td>
                     </tr>
                 </ItemTemplate>
                 <EmptyDataTemplate>
@@ -42,6 +37,5 @@
         </div>
 
     </div>
-
 
 </asp:Content>

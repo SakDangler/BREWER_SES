@@ -10,16 +10,7 @@
 namespace BASE.Screens.Maintenance.Lookup.Contact {
     
     
-    public partial class List {
-        
-        /// <summary>
-        /// btnCreate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreate;
+    public partial class ManageRoles {
         
         /// <summary>
         /// ItemListView control.
@@ -29,5 +20,14 @@ namespace BASE.Screens.Maintenance.Lookup.Contact {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView ItemListView;
+        
+        /// <summary>
+        /// AddRolesItemButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddRolesItemButton;
     }
 }

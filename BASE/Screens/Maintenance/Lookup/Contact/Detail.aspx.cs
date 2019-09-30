@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,6 +11,7 @@ namespace BASE.Screens.Maintenance.Lookup.Contact
     public partial class Detail : System.Web.UI.Page
     {
         private tContact _item;
+        private tGrantee _grantee;
         private SQLEntities _entity;
         private string _basePath = "/Screens/Maintenance/Lookup/Contact/List/";
 
@@ -44,13 +46,24 @@ namespace BASE.Screens.Maintenance.Lookup.Contact
 
             if (!IsPostBack)
             {
+                CommitteeList = LoadCommittees(CommitteeList);
                 LoadContact(CurrentItem);
             }
         }
 
+        protected Repeater LoadCommittees(Repeater committeeList)
+        {
+            List<int> committeeIDs = _entity.tContactCommittee.Where(w => w.ContactID == CurrentItem.ContactID).Select(w => w.CommitteeID).ToList();
+            List<tCommittee> committee = _entity.tCommittee.Where(w => committeeIDs.Contains(w.CommitteeID)).OrderBy(w => w.Name).ToList();
+            committeeList.DataSource = committee;
+            committeeList.DataBind();
+
+            return committeeList;
+        }
+
         protected void LoadContact(tContact grantee)
         {
-
+            _grantee = _entity.tGrantee.Where(w => w.GranteeID == CurrentItem.GranteeID).FirstOrDefault();
             lblFirstName.Text = CurrentItem.FirstName;
             lblLastName.Text = CurrentItem.LastName;
             lblEmail.Text = CurrentItem.PrimaryEmail;
@@ -60,11 +73,21 @@ namespace BASE.Screens.Maintenance.Lookup.Contact
             chkDisabled.Checked = (CurrentItem.Disabled == true) ? true : false;
             chkRegional.Checked = (CurrentItem.RegionHSParticipation == true) ? true : false;
             chkNational.Checked = (CurrentItem.NationalHSParticipation == true) ? true : false;
+
+            lblGrantee.Text = _grantee.GranteeName;
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Screens/Maintenance/Lookup/Contact/Edit?ID=" + CurrentItem.ContactID);
         }
+
+        protected void btnCommittee_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Screens/Maintenance/Lookup/Contact/ManageRoles.aspx?ID=" + CurrentItem.ContactID);
+        }
+
+      
+
     }
 }

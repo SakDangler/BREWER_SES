@@ -103,6 +103,24 @@ namespace BASE.Screens.Maintenance.Lookup.Contact {
         protected global::System.Web.UI.WebControls.CheckBox chkDisabled;
         
         /// <summary>
+        /// lblGrantee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGrantee;
+        
+        /// <summary>
+        /// CommitteeList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater CommitteeList;
+        
+        /// <summary>
         /// btnEdit control.
         /// </summary>
         /// <remarks>
@@ -110,5 +128,14 @@ namespace BASE.Screens.Maintenance.Lookup.Contact {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEdit;
+        
+        /// <summary>
+        /// btnCommittee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCommittee;
     }
 }
