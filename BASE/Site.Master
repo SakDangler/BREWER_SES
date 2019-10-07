@@ -177,17 +177,17 @@
             <div class="menuItems">
                 <ul class="sidebar-navigation">
                     <li>
-                        <a href="/Screens/Maintenance/Lookup/Contact/List/">
+                        <a href="/Screens/Maintenance/Contact/List/">
                             <i class="fa fa-home" aria-hidden="true"></i>Contact
                         </a>
                     </li>
                     <li>
-                        <a href="/Screens/Maintenance/Admin/Grantee/List">
+                        <a href="/Screens/Maintenance/Grantee/List">
                             <i class="fa fa-tachometer" aria-hidden="true"></i>Grantees
                         </a>
                     </li>
                     <li>
-                        <a href="/Screens/Maintenance/Admin/Committee/List">
+                        <a href="/Screens/Maintenance/Committee/List">
                             <i class="fa fa-tachometer" aria-hidden="true"></i>Committees
                         </a>
                     </li>

@@ -143,19 +143,19 @@
     <Content Include="Screens\Admin\Role\Detail.aspx" />
     <Content Include="Screens\Admin\Role\Edit.aspx" />
     <Content Include="Screens\Admin\Role\List.aspx" />
-    <Content Include="Screens\Maintenance\Admin\Committee\Create.aspx" />
-    <Content Include="Screens\Maintenance\Admin\Committee\Detail.aspx" />
-    <Content Include="Screens\Maintenance\Admin\Committee\Edit.aspx" />
-    <Content Include="Screens\Maintenance\Admin\Committee\List.aspx" />
-    <Content Include="Screens\Maintenance\Admin\Grantee\Edit.aspx" />
-    <Content Include="Screens\Maintenance\Admin\Grantee\Create.aspx" />
-    <Content Include="Screens\Maintenance\Admin\Grantee\Detail.aspx" />
-    <Content Include="Screens\Maintenance\Admin\Grantee\List.aspx" />
-    <Content Include="Screens\Maintenance\Lookup\Contact\Create.aspx" />
-    <Content Include="Screens\Maintenance\Lookup\Contact\Detail.aspx" />
-    <Content Include="Screens\Maintenance\Lookup\Contact\Edit.aspx" />
-    <Content Include="Screens\Maintenance\Lookup\Contact\List.aspx" />
-    <Content Include="Screens\Maintenance\Lookup\Contact\ManageRoles.aspx" />
+    <Content Include="Screens\Maintenance\Committee\Create.aspx" />
+    <Content Include="Screens\Maintenance\Committee\Detail.aspx" />
+    <Content Include="Screens\Maintenance\Committee\Edit.aspx" />
+    <Content Include="Screens\Maintenance\Committee\List.aspx" />
+    <Content Include="Screens\Maintenance\Grantee\Edit.aspx" />
+    <Content Include="Screens\Maintenance\Grantee\Create.aspx" />
+    <Content Include="Screens\Maintenance\Grantee\Detail.aspx" />
+    <Content Include="Screens\Maintenance\Grantee\List.aspx" />
+    <Content Include="Screens\Maintenance\Contact\Create.aspx" />
+    <Content Include="Screens\Maintenance\Contact\Detail.aspx" />
+    <Content Include="Screens\Maintenance\Contact\Edit.aspx" />
+    <Content Include="Screens\Maintenance\Contact\List.aspx" />
+    <Content Include="Screens\Maintenance\Contact\ManageRoles.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -293,95 +293,95 @@
     <Compile Include="Screens\Admin\Role\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Committee\Create.aspx.cs">
+    <Compile Include="Screens\Maintenance\Committee\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Committee\Create.aspx.designer.cs">
+    <Compile Include="Screens\Maintenance\Committee\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Committee\Detail.aspx.cs">
+    <Compile Include="Screens\Maintenance\Committee\Detail.aspx.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Committee\Detail.aspx.designer.cs">
+    <Compile Include="Screens\Maintenance\Committee\Detail.aspx.designer.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Committee\Edit.aspx.cs">
+    <Compile Include="Screens\Maintenance\Committee\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Committee\Edit.aspx.designer.cs">
+    <Compile Include="Screens\Maintenance\Committee\Edit.aspx.designer.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Committee\List.aspx.cs">
+    <Compile Include="Screens\Maintenance\Committee\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Committee\List.aspx.designer.cs">
+    <Compile Include="Screens\Maintenance\Committee\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Grantee\Edit.aspx.cs">
+    <Compile Include="Screens\Maintenance\Grantee\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Grantee\Edit.aspx.designer.cs">
+    <Compile Include="Screens\Maintenance\Grantee\Edit.aspx.designer.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Grantee\Create.aspx.cs">
-      <DependentUpon>Create.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Grantee\Create.aspx.designer.cs">
-      <DependentUpon>Create.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Grantee\Detail.aspx.cs">
-      <DependentUpon>Detail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Grantee\Detail.aspx.designer.cs">
-      <DependentUpon>Detail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Grantee\List.aspx.cs">
-      <DependentUpon>List.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Screens\Maintenance\Admin\Grantee\List.aspx.designer.cs">
-      <DependentUpon>List.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\Maintenance\Lookup\Contact\Create.aspx.cs">
+    <Compile Include="Screens\Maintenance\Grantee\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Screens\Maintenance\Lookup\Contact\Create.aspx.designer.cs">
+    <Compile Include="Screens\Maintenance\Grantee\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Maintenance\Lookup\Contact\Detail.aspx.cs">
+    <Compile Include="Screens\Maintenance\Grantee\Detail.aspx.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Screens\Maintenance\Lookup\Contact\Detail.aspx.designer.cs">
+    <Compile Include="Screens\Maintenance\Grantee\Detail.aspx.designer.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Maintenance\Lookup\Contact\Edit.aspx.cs">
-      <DependentUpon>Edit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Screens\Maintenance\Lookup\Contact\Edit.aspx.designer.cs">
-      <DependentUpon>Edit.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\Maintenance\Lookup\Contact\List.aspx.cs">
+    <Compile Include="Screens\Maintenance\Grantee\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Screens\Maintenance\Lookup\Contact\List.aspx.designer.cs">
+    <Compile Include="Screens\Maintenance\Grantee\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Maintenance\Lookup\Contact\ManageRoles.aspx.cs">
+    <Compile Include="Screens\Maintenance\Contact\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Contact\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Contact\Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Contact\Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Contact\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Contact\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Contact\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Contact\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Maintenance\Contact\ManageRoles.aspx.cs">
       <DependentUpon>ManageRoles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Screens\Maintenance\Lookup\Contact\ManageRoles.aspx.designer.cs">
+    <Compile Include="Screens\Maintenance\Contact\ManageRoles.aspx.designer.cs">
       <DependentUpon>ManageRoles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
