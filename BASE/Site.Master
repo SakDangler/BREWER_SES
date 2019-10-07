@@ -170,7 +170,7 @@
 
         <div class="sidebar-container">
             <div class="sidebar-logo">
-                KY Headstart
+                <a href="/" style="color: #fff; text-decoration: none;">KY Headstart</a>
             </div>
 
             <button type="button" class="category-maintenance">Maintenance</button>

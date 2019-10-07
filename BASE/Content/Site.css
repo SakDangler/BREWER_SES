@@ -73,3 +73,15 @@ input[type=checkbox] {
   display: inline-block;
 }
 
+.button {
+    border-radius: 5px;
+    background-color: #2574A9;
+    color: #fff; 
+    border: none;
+    padding: 5px;
+}
+
+.button:hover{
+    background-color: #195983;
+    font-size: 1.1em;
+}

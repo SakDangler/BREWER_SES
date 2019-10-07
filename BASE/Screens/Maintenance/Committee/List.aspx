@@ -4,7 +4,7 @@
     <div class="container">
         <h3>Committees</h3>
 
-        <asp:Button ID="btnCreate" Text="Create" Width="125" runat="server" OnClick="btnCreate_Click" />
+        <asp:Button cssClass="button" ID="btnCreate" Text="Create" Width="125" runat="server" OnClick="btnCreate_Click" />
 
         <br />
 

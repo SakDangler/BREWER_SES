@@ -19,7 +19,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <asp:Button ID="btnEdit" Text="Edit Committee" Width="150" runat="server" OnClick="btnEdit_Click" />
+                <asp:Button cssClass="button" ID="btnEdit" Text="Edit Committee" Width="150" runat="server" OnClick="btnEdit_Click" />
             </div>
         </div>
 

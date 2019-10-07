@@ -23,7 +23,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <asp:Button ID="btnSave" Text="Save" Width="125" runat="server" onclick="btnSave_Click" ValidationGroup="Create"/>
+                <asp:Button cssClass="button" ID="btnSave" Text="Save" Width="125" runat="server" onclick="btnSave_Click" ValidationGroup="Create"/>
             </div>
         </div>
 

@@ -108,11 +108,11 @@
         <div class="row">
 
             <div class="col-md-6">
-                <asp:Button ID="btnEdit" Text="Edit" Width="125" runat="server" OnClick="btnEdit_Click" />
+                <asp:Button cssClass="button" ID="btnEdit" Text="Edit" Width="125" runat="server" OnClick="btnEdit_Click" />
             </div>
 
             <div class="col-md-6">
-                <asp:Button ID="btnCommittee" runat="server" Width="250" Text="Manage Committees" OnClick="btnCommittee_Click" />
+                <asp:Button cssClass="button" ID="btnCommittee" runat="server" Width="250" Text="Manage Committees" OnClick="btnCommittee_Click" />
             </div>
 
         </div>

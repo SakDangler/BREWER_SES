@@ -54,7 +54,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <asp:Button ID="btnSave" Text="Save" Width="125" runat="server" OnClick="btnSave_Click"/>
+                <asp:Button cssClass="button" ID="btnSave" Text="Save" Width="125" runat="server" OnClick="btnSave_Click"/>
             </div>
         </div>
 
