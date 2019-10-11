@@ -22,6 +22,15 @@ namespace BASE.Screens.Maintenance.Committee {
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
+        /// rfvName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
+        
+        /// <summary>
         /// txtDescription control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace BASE.Screens.Maintenance.Committee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        
+        /// <summary>
+        /// rfvDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescription;
         
         /// <summary>
         /// chkDisabled control.

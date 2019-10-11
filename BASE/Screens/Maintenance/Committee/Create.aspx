@@ -11,11 +11,18 @@
             <div class="col-md-3">
                 <asp:Label Width="100" Text="Committee Name" runat="server" />
                 <asp:TextBox ID="txtName" Width="200" runat="server" />
-
+                <asp:RequiredFieldValidator ID="rfvName"
+                   runat="server"
+                   ControlToValidate="txtName"
+                   ErrorMessage="Please enter a name." />
                 <br />
 
                 <asp:Label Width="500" Text="Description" runat="server" />
                 <asp:TextBox ID="txtDescription" Width="200" runat="server" />
+                <asp:RequiredFieldValidator ID="rfvDescription"
+                   runat="server"
+                   ControlToValidate="txtDescription"
+                   ErrorMessage="Please enter a description." />
             </div>
         </div>
 
