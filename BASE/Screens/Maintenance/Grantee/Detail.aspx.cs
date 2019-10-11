@@ -64,7 +64,7 @@ namespace BASE.Screens.Maintenance.Grantee
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Screens/Maintenance/Admin/Grantee/Edit?ID=" + CurrentItem.GranteeID);
+            Response.Redirect("/Screens/Maintenance/Grantee/Edit?ID=" + CurrentItem.GranteeID);
         }
     }
 }
