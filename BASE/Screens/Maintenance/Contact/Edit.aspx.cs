@@ -50,6 +50,7 @@ namespace BASE.Screens.Maintenance.Contact
                 chkRegional.Checked = (CurrentItem.RegionHSParticipation == true) ? true : false;
                 chkNational.Checked = (CurrentItem.NationalHSParticipation == true) ? true : false;
                 LoadGrantees(ddlGrantee);
+                ddlGrantee.SelectedValue = CurrentItem.GranteeID.ToString();
             }
         }
 
