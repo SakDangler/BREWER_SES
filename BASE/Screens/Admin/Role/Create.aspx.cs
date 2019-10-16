@@ -23,22 +23,24 @@ namespace BASE.Screens.Admin.Role
             {
                 Page.Title += " Admin - Create a Role";
                 FormTitleLiteral.Text = String.Format("Create a Role:");
-                CreateItemButton.Text = "Create Role";
+                CreateItemButton.Text = "+ Create Role";
             }
         }
 
         protected void CreateItem_Click(Object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Name.Text.Trim()))
+            Validate("Create");
+            if (IsValid)
             {
                 tRole role = new tRole();
                 role.Name = Name.Text.Trim();
 
                 _entity.tRole.Add(role);
                 _entity.SaveChanges();
-            }
+            
 
-            Response.Redirect(_basePath);
+                Response.Redirect(_basePath);
+            }
         }
 
         protected void Cancel_Click(Object sender, EventArgs e)

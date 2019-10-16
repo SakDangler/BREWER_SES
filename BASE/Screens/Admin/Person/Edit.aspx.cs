@@ -48,8 +48,8 @@ namespace BASE.Screens.Admin.Person
         {
             if (!IsPostBack)
             {
-                Page.Title += " Admin - User Details";
-                FormTitleLiteral.Text = String.Format("User Details: {0}", CurrentItem.FirstName + " " + CurrentItem.LastName);
+                Page.Title += " Admin - Edit a User";
+                FormTitleLiteral.Text = String.Format("Edit User: {0}", CurrentItem.FirstName + " " + CurrentItem.LastName);
                 UpdateItemButton.Text = "Save User";
 
                 BindLists();
@@ -93,20 +93,13 @@ namespace BASE.Screens.Admin.Person
                 _entity.Entry(CurrentItem).State = System.Data.Entity.EntityState.Modified;
                 _entity.SaveChanges();
 
-                Response.Redirect(_basePath);
+                Response.Redirect("/Screens/Admin/Person/Detail?ID=" + CurrentItem.ID);
             }
-        }
-
-        protected void EditItem_Click(Object sender, EventArgs e)
-        {
-
-            Response.Redirect("/Screens/Admin/Person/Edit?ID=");
-
         }
 
         protected void Cancel_Click(Object sender, EventArgs e)
         {
-            Response.Redirect(_basePath);
+            Response.Redirect("/Screens/Admin/Person/Detail?ID=" + CurrentItem.ID);
         }
     }
 }

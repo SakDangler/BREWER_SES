@@ -3,9 +3,8 @@
 
        <h3><asp:Literal ID="FormTitleLiteral" runat="server" /></h3>
     
-    <div class="container">
 
-        <h3>Create Committee</h3>
+        <br />
 
         <div class="row">
             <div class="col-md-3">
@@ -30,10 +29,10 @@
 
         <div class="row">
             <div class="col-md-12">
-                <asp:Button cssClass="button" ID="btnSave" Text="Save" Width="125" runat="server" onclick="btnSave_Click" ValidationGroup="Create"/>
+                <asp:Button ID="CreateItemButton" runat="server" CssClass="button" OnClick="CreateItem_Click" ValidationGroup="Create" Width="150" />
+
+                <asp:Button ID="CancelButton" runat="server" CssClass="button" Text="Cancel" OnClick="Cancel_Click" Width="150" />
             </div>
         </div>
-
-    </div>
 
 </asp:Content>

@@ -19,10 +19,12 @@ namespace BASE.Screens.Maintenance.Grantee
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Page.Title += " Create a Grantee";
+            FormTitleLiteral.Text = String.Format("Create a Grantee:");
+            CreateItemButton.Text = "+ Create Grantee";
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void CreateItem_Click(object sender, EventArgs e)
         {
             Validate("Create");
             if (IsValid)
@@ -42,6 +44,11 @@ namespace BASE.Screens.Maintenance.Grantee
 
                 Response.Redirect(_basePath);
             }
+        }
+
+        protected void Cancel_Click(Object sender, EventArgs e)
+        {
+            Response.Redirect(_basePath);
         }
     }
 }

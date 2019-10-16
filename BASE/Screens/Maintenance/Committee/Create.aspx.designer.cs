@@ -58,12 +58,21 @@ namespace BASE.Screens.Maintenance.Committee {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescription;
         
         /// <summary>
-        /// btnSave control.
+        /// CreateItemButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Button CreateItemButton;
+        
+        /// <summary>
+        /// CancelButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CancelButton;
     }
 }

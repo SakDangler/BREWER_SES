@@ -19,10 +19,12 @@ namespace BASE.Screens.Maintenance.Contact
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Page.Title += " Create a Contact";
+            FormTitleLiteral.Text = String.Format("Create a Contact:");
+            CreateItemButton.Text = "+ Create Contact";
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void CreateItem_Click(object sender, EventArgs e)
         {
             Validate("Create");
             if (IsValid)
@@ -45,6 +47,11 @@ namespace BASE.Screens.Maintenance.Contact
 
                 Response.Redirect(_basePath);
             }
+        }
+
+        protected void Cancel_Click(Object sender, EventArgs e)
+        {
+            Response.Redirect(_basePath);
         }
     }
 }

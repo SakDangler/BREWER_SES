@@ -20,6 +20,10 @@ namespace BASE.Screens.Maintenance.Committee
         {
             if (!IsPostBack)
             {
+                Page.Title += " Committees";
+
+                CreateItemButton.Text = "+ Create Committee";
+
                 LoadCommittees();
             }
         }
@@ -44,7 +48,7 @@ namespace BASE.Screens.Maintenance.Committee
             }
         }
 
-        protected void btnCreate_Click(object sender, EventArgs e)
+        protected void CreateItem_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Screens/Maintenance/Committee/Create");
         }

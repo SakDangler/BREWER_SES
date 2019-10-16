@@ -13,6 +13,15 @@ namespace BASE.Screens.Maintenance.Grantee {
     public partial class Edit {
         
         /// <summary>
+        /// FormTitleLiteral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal FormTitleLiteral;
+        
+        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>
@@ -121,12 +130,21 @@ namespace BASE.Screens.Maintenance.Grantee {
         protected global::System.Web.UI.WebControls.CheckBox chkDisabled;
         
         /// <summary>
-        /// btnSave control.
+        /// UpdateItemButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Button UpdateItemButton;
+        
+        /// <summary>
+        /// CancelButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CancelButton;
     }
 }

@@ -22,6 +22,33 @@ namespace BASE.Screens.Admin.Role {
         protected global::System.Web.UI.WebControls.Literal FormTitleLiteral;
         
         /// <summary>
+        /// CreateItemValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary CreateItemValidationSummary;
+        
+        /// <summary>
+        /// ModelValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ModelValidationSummary;
+        
+        /// <summary>
+        /// ValidationErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ValidationErrors;
+        
+        /// <summary>
         /// NameLabel control.
         /// </summary>
         /// <remarks>
@@ -40,6 +67,15 @@ namespace BASE.Screens.Admin.Role {
         protected global::System.Web.UI.WebControls.TextBox Name;
         
         /// <summary>
+        /// NameRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator NameRequired;
+        
+        /// <summary>
         /// SaveRolesItemButton control.
         /// </summary>
         /// <remarks>
@@ -47,5 +83,14 @@ namespace BASE.Screens.Admin.Role {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SaveRolesItemButton;
+        
+        /// <summary>
+        /// CancelButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CancelButton;
     }
 }

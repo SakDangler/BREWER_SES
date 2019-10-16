@@ -2,11 +2,7 @@
 <asp:content id="Content1" contentplaceholderid="MainContent" runat="server">
    <h3><asp:Literal ID="FormTitleLiteral" runat="server" /></h3>
     
-    <div class="container">
-
         <div class="row">
-
-            <h3>Contact Information</h3>
 
             <br />
 
@@ -108,12 +104,11 @@
         <br /><hr /><br />
 
         <div class="row">
+                <div class="col-md-12">
+                    <asp:Button ID="UpdateItemButton" runat="server" CssClass="button" OnClick="UpdateItem_Click" ValidationGroup="Update" Width="150" />
 
-            <div class="col-md-6">
-                <asp:Button cssClass="button" ID="btnSave" Text="Save" Width="125" runat="server" OnClick="btnSave_Click"/>
-            </div>
+                    <asp:Button ID="CancelButton" runat="server" CssClass="button" Text="Cancel" OnClick="Cancel_Click" Width="150" />
+                </div>
+           </div>
 
-        </div>
-
-    </div>
 </asp:content>

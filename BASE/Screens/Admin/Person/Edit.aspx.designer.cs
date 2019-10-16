@@ -22,6 +22,33 @@ namespace BASE.Screens.Admin.Person {
         protected global::System.Web.UI.WebControls.Literal FormTitleLiteral;
         
         /// <summary>
+        /// CreateItemValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary CreateItemValidationSummary;
+        
+        /// <summary>
+        /// ModelValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ModelValidationSummary;
+        
+        /// <summary>
+        /// ValidationErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ValidationErrors;
+        
+        /// <summary>
         /// FirstNameLabel control.
         /// </summary>
         /// <remarks>
@@ -38,6 +65,15 @@ namespace BASE.Screens.Admin.Person {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox FirstName;
+        
+        /// <summary>
+        /// FirstNameRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator FirstNameRequired;
         
         /// <summary>
         /// LastNameLabel control.
@@ -58,6 +94,15 @@ namespace BASE.Screens.Admin.Person {
         protected global::System.Web.UI.WebControls.TextBox LastName;
         
         /// <summary>
+        /// LastNameRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator LastNameRequired;
+        
+        /// <summary>
         /// EmailAddressLabel control.
         /// </summary>
         /// <remarks>
@@ -74,6 +119,15 @@ namespace BASE.Screens.Admin.Person {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EmailAddress;
+        
+        /// <summary>
+        /// EmailAddressRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailAddressRequired;
         
         /// <summary>
         /// NetworkIdentityLabel control.

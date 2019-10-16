@@ -23,7 +23,7 @@ namespace BASE.Screens.Admin.Person
             {
                 Page.Title += " Admin - Create a User";
                 FormTitleLiteral.Text = String.Format("Create a User:");
-                CreateItemButton.Text = "Create User";
+                CreateItemButton.Text = "+ Create User";
             }
         }
 

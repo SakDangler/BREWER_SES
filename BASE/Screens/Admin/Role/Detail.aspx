@@ -12,5 +12,6 @@
         </tr>
     </table>
     <br />
-    <asp:Button ID="UpdateItemButton" runat="server" OnClick="UpdateItemButton_Click" CssClass="button" />
+    <asp:Button ID="UpdateItemButton" runat="server" OnClick="UpdateItemButton_Click" CssClass="button" Width="150" />
+    <asp:Button ID="CancelButton" runat="server" CssClass="button" Text="Cancel" OnClick="Cancel_Click" Width="150" />
 </asp:Content>

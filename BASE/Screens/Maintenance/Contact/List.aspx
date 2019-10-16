@@ -1,12 +1,11 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="BASE.Screens.Maintenance.Contact.List" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
     <div class="container">
         <h3>Contacts</h3>
-
-        <asp:Button cssClass="button" ID="btnCreate" Text="Create" Width="125" runat="server" OnClick="btnCreate_Click" />
-
+        <br />
+        <div class="row">
+            <asp:Button ID="CreateItemButton" runat="server" OnClick="CreateItem_Click" CssClass="button" Width="150" />
+        </div>
         <br />
         
         <div class="row">
@@ -40,8 +39,5 @@
                 </EmptyDataTemplate>
             </asp:ListView>
         </div>
-
     </div>
-
-
 </asp:Content>
