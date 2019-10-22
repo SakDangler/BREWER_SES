@@ -1,51 +1,45 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Detail.aspx.cs" Inherits="BASE.Screens.Maintenance.Contact.Detail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h3>
-        <asp:Literal ID="FormTitleLiteral" runat="server" /></h3>
-
+    <h3>Contact Information</h3>
+    <br />
     <div class="container">
 
         <div class="row">
+            <div class="col-md-6" style="font-size: larger">
 
-            <h3>Contact Information</h3>
-
-            <br />
-
-            <div class="col-md-6">
-
-                <asp:Label runat="server" Width="100" Text="First Name: " Font-Bold="true" />
+                <asp:Label runat="server" Width="150" Text="First Name: " />
                 <asp:Label ID="lblFirstName" Width="150" runat="server" />
 
                 <br />
                 <br />
 
-                <asp:Label runat="server" Width="100" Text="Primary Phone: " Font-Bold="true" />
+                <asp:Label runat="server" Width="150" Text="Primary Phone: " />
                 <asp:Label ID="lblPrimaryPhone" Width="150" runat="server" />
 
                 <br />
                 <br />
 
-                <asp:Label runat="server" Width="100" Text="Email: " />
+                <asp:Label runat="server" Width="150" Text="Email: " />
                 <asp:Label ID="lblEmail" Width="150" runat="server" />
 
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="font-size: larger">
 
-                <asp:Label runat="server" Width="200" Text="Last Name: " Font-Bold="true" />
+                <asp:Label runat="server" Width="200" Text="Last Name: " />
                 <asp:Label ID="lblLastName" Width="150" runat="server" />
 
                 <br />
                 <br />
 
-                <asp:Label runat="server" Width="200" Text="Secondary Phone: " Font-Bold="true" />
+                <asp:Label runat="server" Width="200" Text="Secondary Phone: " />
                 <asp:Label ID="lblSecondaryPhone" Width="150" runat="server" />
 
                 <br />
                 <br />
 
-                <asp:Label runat="server" Width="200" Text="Member Number: " Font-Bold="true" />
+                <asp:Label runat="server" Width="200" Text="Member Number: " />
                 <asp:Label ID="lblMemberNumber" Width="150" runat="server" />
             </div>
 
@@ -55,18 +49,18 @@
 
         <div class="row">
 
-            <div class="col-md-4">
-                <asp:Label runat="server" Text="Regional HS" Font-Bold="true" />
+            <div class="col-md-4" style="font-size: larger">
+                <asp:Label runat="server" Text="Regional HS" />
                 <asp:CheckBox ID="chkRegional" runat="server" Enabled="false" />
             </div>
 
-            <div class="col-md-4">
-                <asp:Label runat="server" Text="National HS" Font-Bold="true" />
+            <div class="col-md-4" style="font-size: larger">
+                <asp:Label runat="server" Text="National HS" />
                 <asp:CheckBox ID="chkNational" runat="server" Enabled="false" />
             </div>
 
-            <div class="col-md-4">
-                <asp:Label runat="server" Text="Disabled" Font-Bold="true" />
+            <div class="col-md-4" style="font-size: larger">
+                <asp:Label runat="server" Text="Disabled" />
                 <asp:CheckBox ID="chkDisabled" runat="server" Enabled="false" />
             </div>
 
@@ -76,12 +70,12 @@
 
         <div class="row">
             
-            <div class="col-md-6">
-                <asp:Label Width="100" Text="Grantee: " runat="server" Font-Bold="true" />
+            <div class="col-md-6" style="font-size: larger">
+                <asp:Label Width="100" Text="Grantee: " runat="server" />
             <asp:Label ID="lblGrantee" runat="server" Width="200" />
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="font-size: larger">
                 <asp:Repeater ID="CommitteeList" runat="server">
 
                     <HeaderTemplate>

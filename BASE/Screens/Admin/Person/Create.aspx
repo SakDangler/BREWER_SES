@@ -58,7 +58,7 @@
 
             </div>
         </div>
-    </div>
+    
     
     <br />
     <br />
@@ -69,5 +69,7 @@
 
             <asp:Button ID="CancelButton" runat="server" CssClass="button" Text="Cancel" OnClick="Cancel_Click" Width="150" />
         </div>
+    </div>
+
     </div>
 </asp:Content>

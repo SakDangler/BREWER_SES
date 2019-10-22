@@ -22,6 +22,33 @@ namespace BASE.Screens.Maintenance.Contact {
         protected global::System.Web.UI.WebControls.Literal FormTitleLiteral;
         
         /// <summary>
+        /// CreateItemValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary CreateItemValidationSummary;
+        
+        /// <summary>
+        /// ModelValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ModelValidationSummary;
+        
+        /// <summary>
+        /// ValidationErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ValidationErrors;
+        
+        /// <summary>
         /// txtFirstName control.
         /// </summary>
         /// <remarks>
@@ -31,13 +58,13 @@ namespace BASE.Screens.Maintenance.Contact {
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
         
         /// <summary>
-        /// rfvName control.
+        /// FirstNameRequired control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator FirstNameRequired;
         
         /// <summary>
         /// txtPrimaryPhone control.
@@ -49,15 +76,6 @@ namespace BASE.Screens.Maintenance.Contact {
         protected global::System.Web.UI.WebControls.TextBox txtPrimaryPhone;
         
         /// <summary>
-        /// rfvPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvPhone;
-        
-        /// <summary>
         /// txtEmail control.
         /// </summary>
         /// <remarks>
@@ -65,15 +83,6 @@ namespace BASE.Screens.Maintenance.Contact {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
-        /// <summary>
-        /// rfvEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvEmail;
         
         /// <summary>
         /// txtLastName control.
@@ -85,13 +94,13 @@ namespace BASE.Screens.Maintenance.Contact {
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
         
         /// <summary>
-        /// rfvLastName control.
+        /// LastNameRequired control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLastName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator LastNameRequired;
         
         /// <summary>
         /// txtSecondaryPhone control.
@@ -103,15 +112,6 @@ namespace BASE.Screens.Maintenance.Contact {
         protected global::System.Web.UI.WebControls.TextBox txtSecondaryPhone;
         
         /// <summary>
-        /// rfvSecondaryPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvSecondaryPhone;
-        
-        /// <summary>
         /// txtMemberNumber control.
         /// </summary>
         /// <remarks>
@@ -119,15 +119,6 @@ namespace BASE.Screens.Maintenance.Contact {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMemberNumber;
-        
-        /// <summary>
-        /// rfvMemberNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMemberNumber;
         
         /// <summary>
         /// chkRegional control.

@@ -1,19 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="BASE.Screens.Maintenance.Grantee.Create" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <h3>
+        <asp:Literal ID="FormTitleLiteral" runat="server" /></h3>
 
-       <h3><asp:Literal ID="FormTitleLiteral" runat="server" /></h3>
-    
-        <br />
+    <div style="background-color: lightcoral; font-size: large; color: white; font-weight: bold; width: 50%;">
+        <asp:ValidationSummary ID="CreateItemValidationSummary" runat="server" CssClass="error" ValidationGroup="Create" HeaderText="Error:" />
+        <asp:Panel ID="ModelValidationSummary" runat="server" Visible="false" CssClass="error" BackColor="LightPink">
+            <asp:ListView ID="ValidationErrors" runat="server">
+                <LayoutTemplate>
+                    <ul>
+                        <li id="itemPlaceholder" runat="server" />
+                    </ul>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <li><%# Container.DataItem %></li>
+                </ItemTemplate>
+            </asp:ListView>
+        </asp:Panel>
+    </div>
+
+    <br />
+
+    <div class="container">
 
         <div class="row">
             <div class="col-md-3">
                 <asp:Label Width="100" Text="Grantee Name" runat="server" />
                 <asp:TextBox ID="txtName" Width="200" runat="server" />
-                <asp:RequiredFieldValidator ID="rfvName"
-                    runat="server"
-                    ControlToValidate="txtName"
-                    ErrorMessage="Please enter the Grantee name." />
-            </div>
+                <asp:RequiredFieldValidator ID="NameRequired" runat="server" ControlToValidate="txtName" CssClass="error-message" Display="None" ValidationGroup="Create" ErrorMessage="Name is required." />
+                </div>
         </div>
 
             <br />
@@ -22,10 +37,6 @@
             <div class="col-md-4">
                 <asp:Label Width="100" Text="Address 1" runat="server" />
                 <asp:TextBox ID="txtAddress" Width="350" runat="server" />
-                <asp:RequiredFieldValidator ID="rfvAddress"
-                    runat="server"
-                    ControlToValidate="txtAddress"
-                    ErrorMessage="Please enter an address." />
             </div>
             <div class="col-md-4">
                 <asp:Label Width="100" Text="Address 2" runat="server" />
@@ -39,28 +50,14 @@
             <div class="col-md-2">
                 <asp:Label Width="100" Text="City" runat="server" />
                 <asp:TextBox ID="txtCity" Width="150" runat="server" />
-                <asp:RequiredFieldValidator ID="rfvCity"
-                    runat="server"
-                    ControlToValidate="txtCity"
-                    ErrorMessage="Please enter a city." />
             </div>
             <div class="col-md-2">
                 <asp:Label Width="100" Text="State" runat="server" />
                 <asp:TextBox ID="txtState" Width="150" runat="server" />
-                <asp:RequiredFieldValidator ID="rfvState"
-                    runat="server"
-                    ControlToValidate="txtState"
-                    ErrorMessage="Please enter the state." />
             </div>
             <div class="col-md-2">
                 <asp:Label Width="100" Text="Zip" runat="server" />
                 <asp:TextBox ID="txtZip" Width="150" runat="server" />
-                <asp:RegularExpressionValidator 
-                    ID="rfvZip"
-                    runat="server" 
-                    ValidationExpression="\d{5}(-\d{4})?"
-                    ControlToValidate="txtZip"
-                    ErrorMessage="Input valid Zip Code!" />
             </div>
         </div>
 
@@ -81,5 +78,5 @@
                 <asp:Button ID="CancelButton" runat="server" CssClass="button" Text="Cancel" OnClick="Cancel_Click" Width="150" />
             </div>
         </div>
-
+        </div>
 </asp:Content>

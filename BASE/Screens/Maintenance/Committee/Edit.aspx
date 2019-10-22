@@ -26,38 +26,40 @@
 
     <div class="container">
         <div class="row">
-             <div class="col-md-4">
-            <%--<asp:Label Width="100" Text="Committee Name" runat="server" />
+            <div class="col-md-4">
+                <%--<asp:Label Width="100" Text="Committee Name" runat="server" />
                <asp:TextBox ID="txtName" Width="200" runat="server" />
                <asp:RequiredFieldValidator ID="rfvName"
                    runat="server"
                    ControlToValidate="txtName"
                    ErrorMessage="Please enter a name." />--%>
 
-            <asp:Label ID="NameLabel" runat="server" Text="* Name:" AssociatedControlID="txtName" Width="150" />
-            <asp:TextBox ID="txtName" runat="server" CssClass="textbox" Width="200" MaxLength="64" ValidationGroup="Update" />
-            <asp:RequiredFieldValidator ID="NameRequired" runat="server" ControlToValidate="txtName" CssClass="error-message" Display="None" ValidationGroup="Update" ErrorMessage="Name is required." />
-            <br />
-            <br />
+                <asp:Label ID="NameLabel" runat="server" Text="* Name:" AssociatedControlID="txtName" Width="150" />
+                <asp:TextBox ID="txtName" runat="server" CssClass="textbox" Width="200" MaxLength="64" ValidationGroup="Update" />
+                <asp:RequiredFieldValidator ID="NameRequired" runat="server" ControlToValidate="txtName" CssClass="error-message" Display="None" ValidationGroup="Update" ErrorMessage="Name is required." />
+                <br />
+                <br />
 
-            <asp:Label ID="DescriptionLabel" runat="server" Text="Description:" AssociatedControlID="txtDescription" Width="150" />
-            <asp:TextBox ID="txtDescription" runat="server" CssClass="textbox" Width="200" MaxLength="64" ValidationGroup="Update" />
+                <asp:Label ID="DescriptionLabel" runat="server" Text="Description:" AssociatedControlID="txtDescription" Width="150" />
+                <asp:TextBox ID="txtDescription" runat="server" CssClass="textbox" Width="200" MaxLength="64" ValidationGroup="Update" />
 
 
 
-            <%--<asp:Label Width="500" Text="Description" runat="server" />
+                <%--<asp:Label Width="500" Text="Description" runat="server" />
                <asp:TextBox ID="txtDescription" Width="200" runat="server" />
                <asp:RequiredFieldValidator ID="rfvDescription"
                    runat="server"
                    ControlToValidate="txtDescription"
                    ErrorMessage="Please enter a description." />--%>
-        </div></div>
-        <br />
-        <div class="col-md-4">
-            <asp:CheckBox ID="chkDisabled" runat="server" CssClass="checkbox" ValidationGroup="Update" />
-            <asp:Label ID="DisabledLabel" runat="server" Text="Disabled" AssociatedControlID="chkDisabled" />
+            </div>
+
+            <div class="col-md-4">
+                <asp:CheckBox ID="chkDisabled" runat="server" CssClass="checkbox" ValidationGroup="Update" />
+                <asp:Label ID="DisabledLabel" runat="server" Text="Disabled" AssociatedControlID="chkDisabled" />
+            </div>
         </div>
-    </div>
+        
+    
 
     <br />
     <br />
@@ -68,6 +70,8 @@
 
             <asp:Button ID="CancelButton" runat="server" CssClass="button" Text="Cancel" OnClick="Cancel_Click" Width="150" />
         </div>
+    </div>
+
     </div>
 
 </asp:Content>
