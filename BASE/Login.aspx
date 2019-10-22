@@ -134,7 +134,7 @@
         <form class="modal-content animate" runat="server">
             <div class="imgcontainer">
                 <span onclick="document.getElementById('id01').style.display='none'; window.close()" class="close" title="Close Modal">&times;</span>
-                <img src="LoginImage.jpg" alt="Avatar" class="avatar">
+                <img src="KHSA_logo.png" alt="Avatar" class="avatar" />
             </div>
 
             <div class="container">
