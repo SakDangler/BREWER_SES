@@ -5,9 +5,10 @@
         <h3>Persons</h3>
         <br />
         <div class="row">
-            <asp:Button ID="CreateItemButton" runat="server" OnClick="CreateItem_Click" CssClass="button" />
+            <asp:Button ID="CreateItemButton" runat="server" OnClick="CreateItem_Click" CssClass="button" Width="150" />
         </div>
         <br />
+
         <div class="row">
             <asp:ListView ID="ItemListView" runat="server" OnItemDataBound="ItemListView_ItemDataBound">
                 <LayoutTemplate>

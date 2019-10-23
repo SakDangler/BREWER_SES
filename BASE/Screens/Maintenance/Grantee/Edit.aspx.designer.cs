@@ -13,6 +13,42 @@ namespace BASE.Screens.Maintenance.Grantee {
     public partial class Edit {
         
         /// <summary>
+        /// FormTitleLiteral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal FormTitleLiteral;
+        
+        /// <summary>
+        /// CreateItemValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary CreateItemValidationSummary;
+        
+        /// <summary>
+        /// ModelValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ModelValidationSummary;
+        
+        /// <summary>
+        /// ValidationErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ValidationErrors;
+        
+        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>
@@ -22,13 +58,13 @@ namespace BASE.Screens.Maintenance.Grantee {
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// rfvName control.
+        /// NameRequired control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator NameRequired;
         
         /// <summary>
         /// txtAddress control.
@@ -38,15 +74,6 @@ namespace BASE.Screens.Maintenance.Grantee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
-        
-        /// <summary>
-        /// rfvAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAddress;
         
         /// <summary>
         /// txtAddress2 control.
@@ -67,15 +94,6 @@ namespace BASE.Screens.Maintenance.Grantee {
         protected global::System.Web.UI.WebControls.TextBox txtCity;
         
         /// <summary>
-        /// rfvCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCity;
-        
-        /// <summary>
         /// txtState control.
         /// </summary>
         /// <remarks>
@@ -83,15 +101,6 @@ namespace BASE.Screens.Maintenance.Grantee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtState;
-        
-        /// <summary>
-        /// rfvState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvState;
         
         /// <summary>
         /// txtZip control.
@@ -103,15 +112,6 @@ namespace BASE.Screens.Maintenance.Grantee {
         protected global::System.Web.UI.WebControls.TextBox txtZip;
         
         /// <summary>
-        /// rfvZip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvZip;
-        
-        /// <summary>
         /// chkDisabled control.
         /// </summary>
         /// <remarks>
@@ -121,12 +121,21 @@ namespace BASE.Screens.Maintenance.Grantee {
         protected global::System.Web.UI.WebControls.CheckBox chkDisabled;
         
         /// <summary>
-        /// btnSave control.
+        /// UpdateItemButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Button UpdateItemButton;
+        
+        /// <summary>
+        /// CancelButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CancelButton;
     }
 }

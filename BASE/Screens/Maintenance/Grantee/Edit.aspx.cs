@@ -41,6 +41,10 @@ namespace BASE.Screens.Maintenance.Grantee
         {
             if (!IsPostBack)
             {
+                Page.Title += " Edit a Grantee";
+                FormTitleLiteral.Text = String.Format("Edit Grantee: {0}", CurrentItem.GranteeName);
+                UpdateItemButton.Text = "Save Grantee";
+
                 txtName.Text = CurrentItem.GranteeName;
                 txtAddress.Text = CurrentItem.GranteeAddress1;
                 txtAddress2.Text = CurrentItem.GranteeAddress2;
@@ -51,26 +55,35 @@ namespace BASE.Screens.Maintenance.Grantee
             }
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void UpdateItem_Click(Object sender, EventArgs e)
         {
-            CurrentItem.GranteeName = txtName.Text.Trim();
-            CurrentItem.GranteeAddress1 = txtAddress.Text.Trim();
-            CurrentItem.GranteeAddress2 = txtAddress2.Text.Trim();
-            CurrentItem.GranteeCity = txtCity.Text.Trim();
-            CurrentItem.GranteeState = txtState.Text.Trim();
-            CurrentItem.GranteeZip = txtZip.Text.Trim();
-            CurrentItem.Disabled = (chkDisabled.Checked == true) ? true : false;
+            Validate("Update");
+            if (IsValid)
+            {
+                CurrentItem.GranteeName = txtName.Text.Trim();
+                CurrentItem.GranteeAddress1 = txtAddress.Text.Trim();
+                CurrentItem.GranteeAddress2 = txtAddress2.Text.Trim();
+                CurrentItem.GranteeCity = txtCity.Text.Trim();
+                CurrentItem.GranteeState = txtState.Text.Trim();
+                CurrentItem.GranteeZip = txtZip.Text.Trim();
+                CurrentItem.Disabled = (chkDisabled.Checked == true) ? true : false;
 
-            _entity.Entry(CurrentItem).Property("GranteeName").IsModified = true;
-            _entity.Entry(CurrentItem).Property("GranteeAddress1").IsModified = true;
-            _entity.Entry(CurrentItem).Property("GranteeAddress2").IsModified = true;
-            _entity.Entry(CurrentItem).Property("GranteeCity").IsModified = true;
-            _entity.Entry(CurrentItem).Property("GranteeState").IsModified = true;
-            _entity.Entry(CurrentItem).Property("GranteeZip").IsModified = true;
-            _entity.Entry(CurrentItem).Property("Disabled").IsModified = true;
-            _entity.SaveChanges();
+                _entity.Entry(CurrentItem).Property("GranteeName").IsModified = true;
+                _entity.Entry(CurrentItem).Property("GranteeAddress1").IsModified = true;
+                _entity.Entry(CurrentItem).Property("GranteeAddress2").IsModified = true;
+                _entity.Entry(CurrentItem).Property("GranteeCity").IsModified = true;
+                _entity.Entry(CurrentItem).Property("GranteeState").IsModified = true;
+                _entity.Entry(CurrentItem).Property("GranteeZip").IsModified = true;
+                _entity.Entry(CurrentItem).Property("Disabled").IsModified = true;
+                _entity.SaveChanges();
 
-            Response.Redirect(_basePath);
+                Response.Redirect(_basePath);
+            }
+        }
+
+        protected void Cancel_Click(Object sender, EventArgs e)
+        {
+            Response.Redirect("/Screens/Maintenance/Grantee/Detail?ID=" + CurrentItem.GranteeID);
         }
     }
 }

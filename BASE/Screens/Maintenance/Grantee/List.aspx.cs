@@ -20,6 +20,10 @@ namespace BASE.Screens.Maintenance.Grantee
         {
             if (!IsPostBack)
             {
+                Page.Title += " Grantees";
+
+                CreateItemButton.Text = "+ Create Grantee";
+
                 LoadGrantees();
             }
         }
@@ -44,7 +48,7 @@ namespace BASE.Screens.Maintenance.Grantee
             }
         }
 
-        protected void btnCreate_Click(object sender, EventArgs e)
+        protected void CreateItem_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Screens/Maintenance/Grantee/Create");
         }

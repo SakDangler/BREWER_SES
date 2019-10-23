@@ -32,5 +32,5 @@
 		</EmptyDataTemplate>
 	</asp:ListView>
 	<br />
-	<asp:Button ID="AddRolesItemButton" runat="server" CssClass="button" Text="Save Roles" OnClick="AddRolesItem_Click" />
+	<asp:Button ID="AddRolesItemButton" runat="server" CssClass="button" Text="Save Roles" OnClick="AddRolesItem_Click" Width="150" />
 </asp:Content>

@@ -124,5 +124,10 @@ namespace BASE.Screens.Admin.Person
                 Role.Text = role.Name;
             }
         }
+
+        protected void Cancel_Click(Object sender, EventArgs e)
+        {
+            Response.Redirect(_basePath);
+        }
     }
 }

@@ -91,5 +91,10 @@ namespace BASE.Screens.Admin.Role
             Response.Redirect("/Screens/Admin/Role/Edit?ID=" + CurrentItem.ID);
 
         }
+
+        protected void Cancel_Click(Object sender, EventArgs e)
+        {
+            Response.Redirect(_basePath);
+        }
     }
 }

@@ -19,10 +19,30 @@ namespace BASE.Screens.Maintenance.Contact
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                Page.Title += " Create a Contact";
+                FormTitleLiteral.Text = String.Format("Create a Contact:");
+                CreateItemButton.Text = "+ Create Contact";
 
+                LoadGrantees(ddlGrantee);
+            }
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected DropDownList LoadGrantees(DropDownList ddl)
+        {
+            List<tGrantee> granteeList = _entity.tGrantee.ToList();
+            string granteeName = _entity.tGrantee.Select(w => w.GranteeID).ToString();
+
+            ddl.DataSource = granteeList;
+            ddl.Items.FindByText(granteeName);
+            ddl.DataTextField = "GranteeName";
+            ddl.DataValueField = "GranteeID";
+            ddl.DataBind();
+            return ddl;
+        }
+
+        protected void CreateItem_Click(object sender, EventArgs e)
         {
             Validate("Create");
             if (IsValid)
@@ -38,13 +58,18 @@ namespace BASE.Screens.Maintenance.Contact
                 contact.RegionHSParticipation = chkRegional.Checked;
                 contact.NationalHSParticipation = chkNational.Checked;
                 contact.Disabled = chkDisabled.Checked;
-                contact.GranteeID = 1;
+                contact.GranteeID = Convert.ToInt32(ddlGrantee.SelectedValue);
 
                 _entity.tContact.Add(contact);
                 _entity.SaveChanges();
 
                 Response.Redirect(_basePath);
             }
+        }
+
+        protected void Cancel_Click(Object sender, EventArgs e)
+        {
+            Response.Redirect(_basePath);
         }
     }
 }

@@ -40,6 +40,10 @@ namespace BASE.Screens.Maintenance.Contact
         {
             if (!IsPostBack)
             {
+                Page.Title += " Edit a Contact";
+                FormTitleLiteral.Text = String.Format("Edit Contact: {0}", CurrentItem.FirstName + " " + CurrentItem.LastName);
+                UpdateItemButton.Text = "Save Contact";
+
                 txtFirstName.Text = CurrentItem.FirstName;
                 txtLastName.Text = CurrentItem.LastName;
                 txtPrimaryPhone.Text = CurrentItem.PrimaryPhone;
@@ -50,6 +54,7 @@ namespace BASE.Screens.Maintenance.Contact
                 chkRegional.Checked = (CurrentItem.RegionHSParticipation == true) ? true : false;
                 chkNational.Checked = (CurrentItem.NationalHSParticipation == true) ? true : false;
                 LoadGrantees(ddlGrantee);
+                ddlGrantee.SelectedValue = CurrentItem.GranteeID.ToString();
             }
         }
 
@@ -66,33 +71,42 @@ namespace BASE.Screens.Maintenance.Contact
             return ddl;
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void UpdateItem_Click(Object sender, EventArgs e)
         {
-            CurrentItem.FirstName = txtFirstName.Text.Trim();
-            CurrentItem.LastName = txtLastName.Text.Trim();
-            CurrentItem.PrimaryPhone = txtPrimaryPhone.Text.Trim();
-            CurrentItem.SecondaryPhone = txtSecondaryPhone.Text.Trim();
-            CurrentItem.MemberNumber = txtMemberNumber.Text.Trim();
-            CurrentItem.PrimaryEmail = txtEmail.Text.Trim();
-            CurrentItem.Disabled = (chkDisabled.Checked == true) ? true : false;
-            CurrentItem.RegionHSParticipation = (chkRegional.Checked == true) ? true : false;
-            CurrentItem.NationalHSParticipation = (chkNational.Checked == true) ? true : false;
-            CurrentItem.GranteeID = Convert.ToInt32(ddlGrantee.SelectedValue);
+            Validate("Update");
+            if (IsValid)
+            {
+                CurrentItem.FirstName = txtFirstName.Text.Trim();
+                CurrentItem.LastName = txtLastName.Text.Trim();
+                CurrentItem.PrimaryPhone = txtPrimaryPhone.Text.Trim();
+                CurrentItem.SecondaryPhone = txtSecondaryPhone.Text.Trim();
+                CurrentItem.MemberNumber = txtMemberNumber.Text.Trim();
+                CurrentItem.PrimaryEmail = txtEmail.Text.Trim();
+                CurrentItem.Disabled = (chkDisabled.Checked == true) ? true : false;
+                CurrentItem.RegionHSParticipation = (chkRegional.Checked == true) ? true : false;
+                CurrentItem.NationalHSParticipation = (chkNational.Checked == true) ? true : false;
+                CurrentItem.GranteeID = Convert.ToInt32(ddlGrantee.SelectedValue);
 
-            _entity.Entry(CurrentItem).Property("FirstName").IsModified = true;
-            _entity.Entry(CurrentItem).Property("LastName").IsModified = true;
-            _entity.Entry(CurrentItem).Property("PrimaryPhone").IsModified = true;
-            _entity.Entry(CurrentItem).Property("SecondaryPhone").IsModified = true;
-            _entity.Entry(CurrentItem).Property("PrimaryEmail").IsModified = true;
-            _entity.Entry(CurrentItem).Property("MemberNumber").IsModified = true;
-            _entity.Entry(CurrentItem).Property("Disabled").IsModified = true;
-            _entity.Entry(CurrentItem).Property("RegionHSParticipation").IsModified = true;
-            _entity.Entry(CurrentItem).Property("NationalHSParticipation").IsModified = true;
-            _entity.Entry(CurrentItem).Property("GranteeID").IsModified = true;
+                _entity.Entry(CurrentItem).Property("FirstName").IsModified = true;
+                _entity.Entry(CurrentItem).Property("LastName").IsModified = true;
+                _entity.Entry(CurrentItem).Property("PrimaryPhone").IsModified = true;
+                _entity.Entry(CurrentItem).Property("SecondaryPhone").IsModified = true;
+                _entity.Entry(CurrentItem).Property("PrimaryEmail").IsModified = true;
+                _entity.Entry(CurrentItem).Property("MemberNumber").IsModified = true;
+                _entity.Entry(CurrentItem).Property("Disabled").IsModified = true;
+                _entity.Entry(CurrentItem).Property("RegionHSParticipation").IsModified = true;
+                _entity.Entry(CurrentItem).Property("NationalHSParticipation").IsModified = true;
+                _entity.Entry(CurrentItem).Property("GranteeID").IsModified = true;
 
-            _entity.SaveChanges();
+                _entity.SaveChanges();
 
-            Response.Redirect(_basePath);
+                Response.Redirect(_basePath);
+            }
+        }
+
+        protected void Cancel_Click(Object sender, EventArgs e)
+        {
+            Response.Redirect("/Screens/Maintenance/Contact/Detail?ID=" + CurrentItem.ContactID);
         }
     }
 }

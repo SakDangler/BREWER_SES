@@ -41,23 +41,36 @@ namespace BASE.Screens.Maintenance.Committee
         {
             if (!IsPostBack)
             {
+                Page.Title += " Edit a Committee";
+                FormTitleLiteral.Text = String.Format("Edit Committee: {0}", CurrentItem.Name);
+                UpdateItemButton.Text = "Save Committee";
+
                 txtName.Text = CurrentItem.Name;
                 txtDescription.Text = CurrentItem.Description;
                 chkDisabled.Checked = (CurrentItem.Disabled == true) ? true : false;
             }
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void UpdateItem_Click(Object sender, EventArgs e)
         {
-            CurrentItem.Name = txtName.Text.Trim();
-            CurrentItem.Description = txtDescription.Text.Trim();
-            CurrentItem.Disabled = (chkDisabled.Checked == true) ? true : false;
-            _entity.Entry(CurrentItem).Property("Name").IsModified = true;
-            _entity.Entry(CurrentItem).Property("Description").IsModified = true;
-            _entity.Entry(CurrentItem).Property("Disabled").IsModified = true;
-            _entity.SaveChanges();
+            Validate("Update");
+            if (IsValid)
+            {
+                CurrentItem.Name = txtName.Text.Trim();
+                CurrentItem.Description = txtDescription.Text.Trim();
+                CurrentItem.Disabled = (chkDisabled.Checked == true) ? true : false;
+                _entity.Entry(CurrentItem).Property("Name").IsModified = true;
+                _entity.Entry(CurrentItem).Property("Description").IsModified = true;
+                _entity.Entry(CurrentItem).Property("Disabled").IsModified = true;
+                _entity.SaveChanges();
 
-            Response.Redirect(_basePath);
+                Response.Redirect(_basePath);
+            }
+        }
+
+        protected void Cancel_Click(Object sender, EventArgs e)
+        {
+            Response.Redirect("/Screens/Maintenance/Committee/Detail?ID=" + CurrentItem.CommitteeID);
         }
     }
 }

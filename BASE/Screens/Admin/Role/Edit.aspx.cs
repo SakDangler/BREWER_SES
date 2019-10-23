@@ -41,16 +41,27 @@ namespace BASE.Screens.Admin.Role
         {
             if (!IsPostBack)
             {
+                Page.Title += " Admin - Edit Role";
+                FormTitleLiteral.Text = String.Format("Edit Role: {0}", CurrentItem.Name);
                 Name.Text = CurrentItem.Name;
             }
         }
 
         protected void SaveRolesItem_Click(Object sender, EventArgs e)
         {
-            CurrentItem.Name = Name.Text.Trim();
-            _entity.Entry(CurrentItem).Property("Name").IsModified = true;
-            _entity.SaveChanges();
+            Validate("Update");
+            if (IsValid)
+            {
+                CurrentItem.Name = Name.Text.Trim();
+                _entity.Entry(CurrentItem).Property("Name").IsModified = true;
+                _entity.SaveChanges();
 
+                Response.Redirect(_basePath);
+            }
+        }
+
+        protected void Cancel_Click(Object sender, EventArgs e)
+        {
             Response.Redirect(_basePath);
         }
     }

@@ -22,6 +22,42 @@ namespace BASE.Screens.Maintenance.Committee {
         protected global::System.Web.UI.WebControls.Literal FormTitleLiteral;
         
         /// <summary>
+        /// CreateItemValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary CreateItemValidationSummary;
+        
+        /// <summary>
+        /// ModelValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ModelValidationSummary;
+        
+        /// <summary>
+        /// ValidationErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ValidationErrors;
+        
+        /// <summary>
+        /// NameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label NameLabel;
+        
+        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>
@@ -31,13 +67,22 @@ namespace BASE.Screens.Maintenance.Committee {
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// rfvName control.
+        /// NameRequired control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator NameRequired;
+        
+        /// <summary>
+        /// DescriptionLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DescriptionLabel;
         
         /// <summary>
         /// txtDescription control.
@@ -49,21 +94,21 @@ namespace BASE.Screens.Maintenance.Committee {
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
         
         /// <summary>
-        /// rfvDescription control.
+        /// CreateItemButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescription;
+        protected global::System.Web.UI.WebControls.Button CreateItemButton;
         
         /// <summary>
-        /// btnSave control.
+        /// CancelButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Button CancelButton;
     }
 }

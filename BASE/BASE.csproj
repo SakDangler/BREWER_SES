@@ -113,6 +113,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cropped-qtq80-T6aJSZ-4.jpg" />
+    <Content Include="KHSA_logo.png" />
     <Content Include="LoginImage.jpg" />
     <Content Include="Content\bootstrap-sketchy.css" />
     <Content Include="Content\bootstrap-slate.css" />

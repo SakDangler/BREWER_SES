@@ -20,6 +20,10 @@ namespace BASE.Screens.Maintenance.Contact
         {
             if (!IsPostBack)
             {
+                Page.Title += " Contacts";
+
+                CreateItemButton.Text = "+ Create Contact";
+
                 LoadContacts();
             }
 
@@ -45,7 +49,7 @@ namespace BASE.Screens.Maintenance.Contact
             }
         }
 
-        protected void btnCreate_Click(object sender, EventArgs e)
+        protected void CreateItem_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Screens/Maintenance/Contact/Create");
         }

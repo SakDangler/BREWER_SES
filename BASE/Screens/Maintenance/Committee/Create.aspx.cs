@@ -19,10 +19,12 @@ namespace BASE.Screens.Maintenance.Committee
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Page.Title += " Create a Committee";
+            FormTitleLiteral.Text = String.Format("Create a Committee:");
+            CreateItemButton.Text = "+ Create Committee";
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void CreateItem_Click(object sender, EventArgs e)
         {
             Validate("Create");
             if (IsValid)
@@ -37,6 +39,11 @@ namespace BASE.Screens.Maintenance.Committee
 
                 Response.Redirect(_basePath);
             }
+        }
+
+        protected void Cancel_Click(Object sender, EventArgs e)
+        {
+            Response.Redirect(_basePath);
         }
     }
 }

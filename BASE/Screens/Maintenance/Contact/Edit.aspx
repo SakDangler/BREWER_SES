@@ -1,72 +1,58 @@
 ﻿<%@ Page Language="C#"MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="BASE.Screens.Maintenance.Contact.Edit" %>
 <asp:content id="Content1" contentplaceholderid="MainContent" runat="server">
-   <h3><asp:Literal ID="FormTitleLiteral" runat="server" /></h3>
-    
+<h3>
+        <asp:Literal ID="FormTitleLiteral" runat="server" /></h3>
+
+    <div style="background-color: lightcoral; font-size: large; color: white; font-weight: bold; width: 50%;">
+        <asp:ValidationSummary ID="CreateItemValidationSummary" runat="server" CssClass="error" ValidationGroup="Update" HeaderText="Error:" />
+        <asp:Panel ID="ModelValidationSummary" runat="server" Visible="false" CssClass="error" BackColor="LightPink">
+            <asp:ListView ID="ValidationErrors" runat="server">
+                <LayoutTemplate>
+                    <ul>
+                        <li id="itemPlaceholder" runat="server" />
+                    </ul>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <li><%# Container.DataItem %></li>
+                </ItemTemplate>
+            </asp:ListView>
+        </asp:Panel>
+    </div>
+
+    <br />
+
     <div class="container">
 
         <div class="row">
-
-            <h3>Contact Information</h3>
-
-            <br />
-
             <div class="col-md-6">
 
                 <asp:Label runat="server" Width="100" Text="First Name" />
                 <asp:TextBox id="txtFirstName" Width="150" runat="server" />
-                <asp:RequiredFieldValidator ID="rfvName"
-                    runat="server"
-                    ControlToValidate="txtFirstName"
-                    ErrorMessage="Please enter a first name." />
-
+                <asp:RequiredFieldValidator ID="FirstNameRequired" runat="server" ControlToValidate="txtFirstName" CssClass="error-message" Display="None" ValidationGroup="Create" ErrorMessage="First Name is required." />
+                
                 <br /><br />
 
                 <asp:Label runat="server" Width="100" Text="Primary Phone" Placeholder="8885551234" />
                 <asp:TextBox id="txtPrimaryPhone" Width="150" runat="server" />
-                <asp:RegularExpressionValidator 
-                    ID="rfvPhone" 
-                    runat="server" 
-                    ErrorMessage="Enter valid phone number." 
-                    ControlToValidate="txtPrimaryPhone" 
-                    ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$" />
                 <br /><br />
 
                 <asp:Label runat="server" Width="100" Text="Email" Placeholder="yourname@email.com" />
                 <asp:TextBox id="txtEmail" Width="150" runat="server" />
-                <asp:RegularExpressionValidator 
-                    ID="rfvEmail" 
-                    runat="server" 
-                    ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
-                    ControlToValidate="txtEmail" 
-                    ErrorMessage="Enter a valid email address." />
             </div>
             
             <div class="col-md-6">
 
                 <asp:Label runat="server" Width="200" Text="Last Name" />
                 <asp:TextBox id="txtLastName" Width="150" runat="server" />
-                <asp:RequiredFieldValidator ID="rfvLastName"
-                    runat="server"
-                    ControlToValidate="txtLastName"
-                    ErrorMessage="Please enter a last name." />
+                <asp:RequiredFieldValidator ID="LastNameRequired" runat="server" ControlToValidate="txtLastName" CssClass="error-message" Display="None" ValidationGroup="Create" ErrorMessage="Last Name is required." />
                 <br /><br />
 
                 <asp:Label runat="server" Width="200" Text="Secondary Phone" Placeholder="8885551234" />
                 <asp:TextBox id="txtSecondaryPhone" Width="150" runat="server" />
-                <asp:RegularExpressionValidator 
-                    ID="rfvSecondaryPhone" 
-                    runat="server" 
-                    ErrorMessage="Enter valid phone number." 
-                    ControlToValidate="txtSecondaryPhone" 
-                    ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$" />
                 <br /><br />
 
                 <asp:Label runat="server" Width="200" Text="Member Number"/>
                 <asp:TextBox id="txtMemberNumber" Width="150" runat="server" />
-                <asp:RequiredFieldValidator ID="rfvMemberNumber"
-                    runat="server"
-                    ControlToValidate="txtMemberNumber"
-                    ErrorMessage="Please enter a member number." />
             </div>
 
         </div>
@@ -108,12 +94,11 @@
         <br /><hr /><br />
 
         <div class="row">
+                <div class="col-md-12">
+                    <asp:Button ID="UpdateItemButton" runat="server" CssClass="button" OnClick="UpdateItem_Click" ValidationGroup="Update" Width="150" />
 
-            <div class="col-md-6">
-                <asp:Button cssClass="button" ID="btnSave" Text="Save" Width="125" runat="server" OnClick="btnSave_Click"/>
-            </div>
-
-        </div>
-
+                    <asp:Button ID="CancelButton" runat="server" CssClass="button" Text="Cancel" OnClick="Cancel_Click" Width="150" />
+                </div>
+           </div>
     </div>
 </asp:content>
