@@ -1,10 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="BASE.Screens.Maintenance.Grantee.List" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="container">
         <h3>Grantees</h3>
-
-        <asp:Button cssClass="button" ID="btnCreate" Text="Create" Width="125" runat="server" OnClick="btnCreate_Click" />
+        <div class="row">
+            <div class="col-md-9">
+            </div>
+            <div class="col-md-3">
+                <asp:Button cssClass="button" ID="btnCreate" Text="Create" Width="125" runat="server" OnClick="btnCreate_Click" />
+            </div>
+        </div>
 
         <br />
 
@@ -39,7 +42,5 @@
                 </EmptyDataTemplate>
             </asp:ListView>
         </div>
-
-    </div>
 
 </asp:Content>

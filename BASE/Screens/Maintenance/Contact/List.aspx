@@ -2,13 +2,17 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="container">
+
         <h3>Contacts</h3>
-
-        <asp:Button cssClass="button" ID="btnCreate" Text="Create" Width="125" runat="server" OnClick="btnCreate_Click" />
-
+        <div class="row">
+            <div class="col-md-9">
+            </div>
+            <div class="col-md-3">
+                <asp:Button CssClass="button" ID="btnCreate" Text="Create" Width="125" runat="server" OnClick="btnCreate_Click" />
+            </div>
+        </div>
         <br />
-        
+
         <div class="row">
             <asp:ListView ID="ItemListView" runat="server" OnItemDataBound="ItemListView_ItemDataBound">
                 <LayoutTemplate>
@@ -41,7 +45,6 @@
             </asp:ListView>
         </div>
 
-    </div>
 
 
 </asp:Content>

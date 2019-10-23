@@ -7,7 +7,10 @@
     body {
         height: 100%;
         position: relative;
-        padding: 0px !important;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     footer {
@@ -25,6 +28,7 @@
         overflow-y: auto;
         background: #1a1a1a;
         color: #fff;
+        z-index: 2;
     }
 
     .content-container {
@@ -98,7 +102,10 @@
             }
 
     .content-container {
+        position: fixed;
         padding-left: 220px;
+        width: 100%;
+        z-index: 1;
     }
 
     .category-maintenance, .category-admin {
