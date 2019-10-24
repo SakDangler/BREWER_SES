@@ -6,9 +6,10 @@
         <h3>Contacts</h3>
         <div class="row">
             <div class="col-md-9">
+                <asp:Button CssClass="button" ID="CreateItemButton" Text="Create" Width="125" runat="server" OnClick="CreateItem_Click" />
             </div>
             <div class="col-md-3">
-                <asp:Button CssClass="button" ID="btnCreate" Text="Create" Width="125" runat="server" OnClick="btnCreate_Click" />
+                
             </div>
         </div>
         <br />

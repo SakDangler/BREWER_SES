@@ -3,9 +3,10 @@
         <h3>Grantees</h3>
         <div class="row">
             <div class="col-md-9">
+                <asp:Button cssClass="button" ID="CreateItemButton" Text="Create" Width="125" runat="server" OnClick="CreateItem_Click" />
             </div>
             <div class="col-md-3">
-                <asp:Button cssClass="button" ID="btnCreate" Text="Create" Width="125" runat="server" OnClick="btnCreate_Click" />
+                
             </div>
         </div>
 

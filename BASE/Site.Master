@@ -178,7 +178,7 @@
         <div class="sidebar-container">
             <%--<div class="sidebar-logo">--%>
             <div style="text-align:center; background-color: #000000;" >
-                <a href="/" style="text-decoration: none; background-color: #000000;"><img src="KHSA_logo.png" alt="Avatar" class="avatar" style="width:90px; height: 70px" /></a>
+                <a href="/" style="text-decoration: none; background-color: #000000;"><img src="/KHSA_logo.png" alt="Avatar" class="avatar" style="width:90px; height: 70px" /></a>
 
             </div>
                 <%--<a href="/" style="color: #fff; text-decoration: none;">KY Headstart</a>
