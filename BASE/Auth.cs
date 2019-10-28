@@ -117,7 +117,7 @@ namespace BASE
 
                 return data;
             }
-            catch
+            catch (Exception ex)
             {
                 return null;
             }
