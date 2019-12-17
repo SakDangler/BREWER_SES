@@ -5,18 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c03bd9b5d4b54771a11acf1a3f128740" Name="Diagram1">
-        <EntityTypeShape EntityType="SQLModel.tPerson" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SQLModel.tPersonRole" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SQLModel.tRole" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <AssociationConnector Association="SQLModel.FK_tPersonRole_tPerson" ManuallyRouted="false" />
-        <AssociationConnector Association="SQLModel.FK_tPersonRole_tRole" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="SQLModel.tCommittee" Width="1.5" PointX="5.625" PointY="1.75" />
-        <EntityTypeShape EntityType="SQLModel.tContact" Width="1.5" PointX="5.625" PointY="5" />
-        <EntityTypeShape EntityType="SQLModel.tContactCommittee" Width="1.5" PointX="7.875" PointY="5.625" />
-        <EntityTypeShape EntityType="SQLModel.tGrantee" Width="1.5" PointX="3.375" PointY="5.375" />
-        <AssociationConnector Association="SQLModel.FK_tContactCommittee_tCommittee" />
-        <AssociationConnector Association="SQLModel.FK_tContact_tGrantee" />
-        <AssociationConnector Association="SQLModel.FK_tContactCommittee_tContact" />
+        <EntityTypeShape EntityType="SQLModel.tPrice" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="SQLModel.tPriceType" Width="1.5" PointX="0.75" PointY="1.125" />
+        <AssociationConnector Association="SQLModel.FK_tPrice_tPriceType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -151,11 +151,11 @@
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <link rel="stylesheet" href="CSS3 Menu_files/css3menu1/style.css" type="text/css" /><style type="text/css">._css3m{display:none}</style>
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager runat="server">
+       <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
@@ -175,6 +175,8 @@
             </Scripts>
         </asp:ScriptManager>
 
+        <%--<ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" />--%>
+
         <div class="sidebar-container">
             <%--<div class="sidebar-logo">--%>
             <div style="text-align:center; background-color: #000000;" >
@@ -188,7 +190,7 @@
             <div class="menuItems">
                 <ul class="sidebar-navigation">
                     <li>
-                        <a href="/Screens/Maintenance/Contact/List/">
+                        <a href="/Screens/prices.aspx">
                             <i class="fa fa-home" aria-hidden="true"></i>Contact
                         </a>
                     </li>

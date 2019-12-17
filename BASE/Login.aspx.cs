@@ -34,20 +34,20 @@ namespace BASE
             {
                 ErrorLabel.Visible = false;
 
-                string username = uname.Value.Trim().ToLower();
-                tPerson authenticatedUser = new tPerson();
+                //string username = uname.Value.Trim().ToLower();
+                //tPerson authenticatedUser = new tPerson();
 
-                //fallback to basic authentication
-                if (Auth.AuthenticateBySQL(username, psw.Value.Trim(), out authenticatedUser))
-                {
-                    LoginPerson(authenticatedUser);
-                    Response.Redirect("/Default.aspx");
-                }
-                else
-                {
-                    ErrorLabel.Visible = true;
-                    //ShowValidationErrors(securityService.ValidationDictionary);
-                }
+                ////fallback to basic authentication
+                //if (Auth.AuthenticateBySQL(username, psw.Value.Trim(), out authenticatedUser))
+                //{
+                //    LoginPerson(authenticatedUser);
+                //    Response.Redirect("/Default.aspx");
+                //}
+                //else
+                //{
+                //    ErrorLabel.Visible = true;
+                //    //ShowValidationErrors(securityService.ValidationDictionary);
+                //}
             }
 
             //try
@@ -77,12 +77,12 @@ namespace BASE
             //}
         }
 
-        public static void LoginPerson(tPerson result)
-        {
-            HttpContext.Current.Session["UserID"] = result.ID;
-            HttpContext.Current.Session["Administrator"] = result.Admin;
-            HttpContext.Current.Items["CurrentUser"] = result;
-        }
+        //public static void LoginPerson(tPerson result)
+        //{
+        //    HttpContext.Current.Session["UserID"] = result.ID;
+        //    HttpContext.Current.Session["Administrator"] = result.Admin;
+        //    HttpContext.Current.Items["CurrentUser"] = result;
+        //}
 
         protected void RedirectFromLogin()
         {

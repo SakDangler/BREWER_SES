@@ -61,66 +61,66 @@ namespace BASE
             return cipherText;
         }
 
-        public static bool AuthenticateBySQL(string username, string password, out tPerson authenticatedUser)
-        {
-            authenticatedUser = null;
-            password = Encrypt(password);
+        //public static bool AuthenticateBySQL(string username, string password, out tPerson authenticatedUser)
+        //{
+        //    authenticatedUser = null;
+        //    password = Encrypt(password);
 
-            bool isAuthenticated = false;
+        //    bool isAuthenticated = false;
 
-            try
-            {
-                tPerson person = GetAllPersons().Where(w => w.NetworkIdentity == username).FirstOrDefault();
+        //    try
+        //    {
+        //        tPerson person = GetAllPersons().Where(w => w.NetworkIdentity == username).FirstOrDefault();
 
-                if (person != null && person.NetworkPassword == password)
-                {
-                    authenticatedUser = person;
-                    isAuthenticated = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                string a = ex.Message;
-            }
-            return isAuthenticated;
-        }
+        //        if (person != null && person.NetworkPassword == password)
+        //        {
+        //            authenticatedUser = person;
+        //            isAuthenticated = true;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string a = ex.Message;
+        //    }
+        //    return isAuthenticated;
+        //}
 
-        private static List<tPerson> GetAllPersons()
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BASEDb"].ToString());
-                SqlDataAdapter adpt = new SqlDataAdapter("SELECT * FROM tPerson", conn);
-                adpt.SelectCommand.CommandType = CommandType.Text;
+        //private static List<tPerson> GetAllPersons()
+        //{
+        //    try
+        //    {
+        //        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BASEDb"].ToString());
+        //        SqlDataAdapter adpt = new SqlDataAdapter("SELECT * FROM tPerson", conn);
+        //        adpt.SelectCommand.CommandType = CommandType.Text;
 
-                DataSet ds = new DataSet();
-                adpt.Fill(ds, "Results");
-                DataTable dt = ds.Tables[0];
+        //        DataSet ds = new DataSet();
+        //        adpt.Fill(ds, "Results");
+        //        DataTable dt = ds.Tables[0];
 
-                List<tPerson> data = new List<tPerson>();
-                foreach (DataRow dr in dt.Rows)
-                {
-                    data.Add(new tPerson()
-                    {
-                        ID = Convert.ToInt32(dr["PersonID"].ToString()),
-                        FirstName = dr["FirstName"].ToString(),
-                        LastName = dr["LastName"].ToString(),
-                        EmailAddress = dr["EmailAddress"].ToString(),
-                        Employee = Convert.ToBoolean(dr["Employee"].ToString()),
-                        User = Convert.ToBoolean(dr["User"].ToString()),
-                        NetworkIdentity = dr["NetworkIdentity"].ToString(),
-                        NetworkPassword = dr["NetworkPassword"].ToString(),
-                        Disabled = Convert.ToBoolean(dr["Disabled"].ToString()),
-                        Admin = Convert.ToBoolean(dr["Admin"].ToString())
-                    });
-                }
+        //        List<tPerson> data = new List<tPerson>();
+        //        foreach (DataRow dr in dt.Rows)
+        //        {
+        //            data.Add(new tPerson()
+        //            {
+        //                ID = Convert.ToInt32(dr["PersonID"].ToString()),
+        //                FirstName = dr["FirstName"].ToString(),
+        //                LastName = dr["LastName"].ToString(),
+        //                EmailAddress = dr["EmailAddress"].ToString(),
+        //                Employee = Convert.ToBoolean(dr["Employee"].ToString()),
+        //                User = Convert.ToBoolean(dr["User"].ToString()),
+        //                NetworkIdentity = dr["NetworkIdentity"].ToString(),
+        //                NetworkPassword = dr["NetworkPassword"].ToString(),
+        //                Disabled = Convert.ToBoolean(dr["Disabled"].ToString()),
+        //                Admin = Convert.ToBoolean(dr["Admin"].ToString())
+        //            });
+        //        }
 
-                return data;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
+        //        return data;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return null;
+        //    }
+        //}
     }
 }

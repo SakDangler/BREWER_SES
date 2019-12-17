@@ -36,14 +36,14 @@ namespace BASE
                     {
                         bool admin = false;
 
-                        if (Instance.Admin)
-                        {
-                            admin = true;
-                        }
-                        else
-                        {
-                            admin = IsPersonInRole(UserID, "System Administrators");
-                        }
+                        //if (Instance.Admin)
+                        //{
+                        //    admin = true;
+                        //}
+                        //else
+                        //{
+                        //    admin = IsPersonInRole(UserID, "System Administrators");
+                        //}
 
                         HttpContext.Current.Session["Administrator"] = admin;
 
@@ -76,64 +76,64 @@ namespace BASE
             }
         }
         
-        public static string Identity
-        {
-            get
-            {
-                return Instance.NetworkIdentity;
-            }
-        }
+        //public static string Identity
+        //{
+        //    get
+        //    {
+        //        return Instance.NetworkIdentity;
+        //    }
+        //}
 
-        public static string FullName
-        {
-            get
-            {
-                return Instance.FirstName + " " + Instance.LastName;
-            }
-        }
+        //public static string FullName
+        //{
+        //    get
+        //    {
+        //        return Instance.FirstName + " " + Instance.LastName;
+        //    }
+        //}
 
-        public static string FullNameReverse
-        {
-            get
-            {
-                return Instance.LastName + ", " + Instance.FirstName;
-            }
-        }
+        //public static string FullNameReverse
+        //{
+        //    get
+        //    {
+        //        return Instance.LastName + ", " + Instance.FirstName;
+        //    }
+        //}
 
-        public static tPerson Instance
-        {
-            get
-            {
-                if (IsAuthenticated)
-                {
-                    tPerson result = null;
+        //public static tPerson Instance
+        //{
+        //    get
+        //    {
+        //        if (IsAuthenticated)
+        //        {
+        //            tPerson result = null;
 
-                    if (HttpContext.Current.Items["CurrentUser"] != null)
-                    {
-                        result = (tPerson)HttpContext.Current.Items["CurrentUser"];
-                    }
-                    else
-                    {
-                        SQLEntities _entity = new SQLEntities();
+        //            if (HttpContext.Current.Items["CurrentUser"] != null)
+        //            {
+        //                result = (tPerson)HttpContext.Current.Items["CurrentUser"];
+        //            }
+        //            else
+        //            {
+        //                SQLEntities _entity = new SQLEntities();
                         
-                        result = _entity.tPerson.Where(w => w.ID == UserID).FirstOrDefault();
-                        HttpContext.Current.Items["CurrentUser"] = result;
-                    }
+        //                result = _entity.tPerson.Where(w => w.ID == UserID).FirstOrDefault();
+        //                HttpContext.Current.Items["CurrentUser"] = result;
+        //            }
 
-                    return result;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-        }
+        //            return result;
+        //        }
+        //        else
+        //        {
+        //            return null;
+        //        }
+        //    }
+        //}
 
         public static string EmailAddress
         {
             get
             {
-                return Instance.EmailAddress;
+                return "";// Instance.EmailAddress;
             }
         }
         
@@ -154,22 +154,22 @@ namespace BASE
             }
         }
         
-        public static bool IsPersonInRole(int UserID, string roleName)
-        {
-            SQLEntities _entity = new SQLEntities();
-            List<int> lstRoles = _entity.tPersonRole.Where(w => w.PersonID == UserID).Select(w => w.RoleID).ToList();
+        //public static bool IsPersonInRole(int UserID, string roleName)
+        //{
+        //    SQLEntities _entity = new SQLEntities();
+        //    List<int> lstRoles = _entity.tPersonRole.Where(w => w.PersonID == UserID).Select(w => w.RoleID).ToList();
 
-            foreach(int roleID in lstRoles)
-            {
-                tRole role = _entity.tRole.Where(w => w.ID == roleID).FirstOrDefault();
+        //    foreach(int roleID in lstRoles)
+        //    {
+        //        tRole role = _entity.tRole.Where(w => w.ID == roleID).FirstOrDefault();
 
-                if (role.Name == roleName)
-                {
-                    return true;
-                }
-            }
+        //        if (role.Name == roleName)
+        //        {
+        //            return true;
+        //        }
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
     }
 }
